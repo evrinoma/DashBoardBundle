@@ -1,0 +1,48 @@
+services:
+  evrinoma.dash_board.controller:
+    class: Evrinoma\DashBoardBundle\Controller\DashBoardController
+    arguments: ['@event_dispatcher','@evrinoma.dash_board.dash_board_manager']
+
+  evrinoma.dash_board.api.controller:
+    class: Evrinoma\DashBoardBundle\Controller\DashBoardApiController
+    arguments:
+      - '@jms_serializer'
+      - '@request_stack'
+      - '@evrinoma.dash_board.dash_board_manager'
+
+  evrinoma.dash_board.dash_board_manager:
+    class: Evrinoma\DashBoardBundle\Manager\DashBoardManager
+    arguments:
+      - ['@evrinoma.dash_board.info.proc_info','@evrinoma.dash_board.info.sys_info']
+
+  evrinoma.dash_board.info.proc_info:
+    class: Evrinoma\DashBoardBundle\Info\ProcInfo
+
+  evrinoma.dash_board.info.sys_info:
+    class: Evrinoma\DashBoardBundle\Info\SysInfo
+    arguments: [ '@evrinoma.shell']
+
+  Evrinoma\DashBoardBundle\Controller\DashBoardController:
+    alias: evrinoma.dash_board.controller
+    public: true
+    deprecated:
+
+  Evrinoma\DashBoardBundle\Controller\DashBoardApiController:
+    alias: evrinoma.dash_board.api.controller
+    public: true
+    deprecated:
+
+  Evrinoma\DashBoardBundle\Manager\DashBoardManager:
+    alias: evrinoma.dash_board.dash_board_manager
+    public: true
+    deprecated:
+
+  Evrinoma\DashBoardBundle\Info\ProcInfo:
+    alias:  evrinoma.dash_board.info.proc_info
+    public: true
+    deprecated:
+
+  Evrinoma\DashBoardBundle\Info\SysInfo:
+    alias: evrinoma.dash_board.info.sys_info
+    public: true
+    deprecated:

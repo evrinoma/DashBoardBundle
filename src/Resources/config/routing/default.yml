@@ -1,0 +1,6 @@
+dashboard_status:
+  path: /dashboard/status
+  methods: GET
+  defaults: { _controller: Evrinoma\DashBoardBundle\Controller\DashBoardController:status }
+  options:
+    expose: true

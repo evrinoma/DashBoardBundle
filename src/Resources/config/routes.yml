@@ -1,0 +1,7 @@
+dashboard:
+  resource: "@EvrinomaDashBoardBundle/Resources/config/routing/default.yml"
+  prefix: evrinoma
+
+dashboardapi:
+  resource: "@EvrinomaDashBoardBundle/Resources/config/routing/api.yml"
+  prefix: evrinoma

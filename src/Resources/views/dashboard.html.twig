@@ -1,0 +1,7 @@
+{% block page %}
+    {% include '@EvrinomaDashBoard/DashBoard/template.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('build/status.js', 'webpack') }}"></script>
+{% endblock %}
