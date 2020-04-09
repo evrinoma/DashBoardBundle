@@ -22,4 +22,12 @@ class ExampleTest extends TestCase
         $result = $this->example(3);
         $this->assertEquals(9, $result);
     }
-}
+
+    public function testAdd2()
+    {
+        $result = $this->example(2);
+        $this->assertEquals(6, $result);
+
+        $result = $this->example(3);
+        $this->assertEquals(9, $result);
+    }}
