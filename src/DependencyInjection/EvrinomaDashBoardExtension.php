@@ -4,7 +4,9 @@
 namespace Evrinoma\DashBoardBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Alias;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\DependencyInjection\Reference;
@@ -34,6 +36,17 @@ class EvrinomaDashBoardExtension extends Extension
         if ($provider) {
             $definition->setArgument(0, new Reference($provider));
         }
+        $configuration = $this->getConfiguration($configs, $container);
+        $config        = $this->processConfiguration($configuration, $configs);
+
+        $menu = $config['menu'];
+
+        $definition = new Definition($menu);
+        $definition->addTag('evrinoma.menu');
+        $alias = new Alias('evrinoma.dash_board.menu');
+
+        $container->addDefinitions(['evrinoma.dash_board.menu' => $definition]);
+        $container->addAliases([$menu => $alias]);
     }
 //endregion Public
 

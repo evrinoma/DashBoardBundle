@@ -3,6 +3,7 @@
 
 namespace Evrinoma\DashBoardBundle\DependencyInjection;
 
+use Evrinoma\DashBoardBundle\Menu\DashBoardMenu;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -26,6 +27,11 @@ class Configuration implements ConfigurationInterface
             ->end()
             ->scalarNode('provider')->defaultNull()
             ->info('This option is used for plugins service checking')
+            ->end();
+        $rootNode
+            ->children()
+            ->scalarNode('menu')->defaultValue(DashBoardMenu::class)
+            ->info('This option is used for plug menu as tag serivce')
             ->end();
 
         return $treeBuilder;

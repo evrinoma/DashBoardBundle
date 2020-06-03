@@ -1,8 +1,0 @@
-#Configuration
-
-dashboard:
-#  infos:
-#    - 'Evrinoma\DashBoardBundle\Info\ProcInfo'
-#    - 'Evrinoma\DashBoardBundle\Info\SysInfo'
-  provider: App\DashBoard\Provider\DashBoardProvider
-
