@@ -30,7 +30,7 @@ class EvrinomaDashBoardExtension extends Extension
             $definition->addMethodCall('addInfo', [new Reference($info)]);
         }
         $definition = $container->getDefinition('evrinoma.dash_board.info.proc_info');
-        $provider     = $config['provider'];
+        $provider   = $config['provider'];
         if ($provider) {
             $definition->setArgument(0, new Reference($provider));
         }
