@@ -19,16 +19,22 @@
     },
     "autoload": {
         "psr-4": {
-            "Evrinoma\\DashBoardBundle\\": "src/"
+            "Evrinoma\\DashBoardBundle\\": "src/",
+            "Evrinoma\\DashBoardBundle\\Tests\\": "tests/"
         },
         "exclude-from-classmap": [
             "/Tests/"
         ]
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "repositories": [
         {
-            "type": "path",
-            "url": "../ShellBundle"
+            "type": "vcs",
+            "url": "https://github.com/evrinoma/ShellBundle.git"
         }
-    ]
+    ],
+    "require-dev": {
+        "symfony/phpunit-bridge": "^5.0"
+    }
 }
