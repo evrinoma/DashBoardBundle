@@ -46,3 +46,7 @@ services:
     alias: evrinoma.dash_board.info.sys_info
     public: true
     deprecated:
+
+  Evrinoma\DashBoardBundle\Menu\DashBoardMenu:
+    tags:
+      - { name: evrinoma.menu }
