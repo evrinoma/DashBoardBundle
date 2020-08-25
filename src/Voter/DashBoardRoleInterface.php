@@ -1,11 +1,11 @@
 <?php
 
-namespace Evrinoma\DashBoardBundle\Voiter;
+namespace Evrinoma\DashBoardBundle\Voter;
 
 /**
  * Interface DashBoardRoleInterface
  *
- * @package Evrinoma\DashBoardBundle\Voiter
+ * @package Evrinoma\DashBoardBundle\Voter
  */
 interface DashBoardRoleInterface
 {
