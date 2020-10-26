@@ -2,6 +2,7 @@ services:
   evrinoma.dash_board.controller:
     class: Evrinoma\DashBoardBundle\Controller\DashBoardController
     arguments: ['@event_dispatcher','@evrinoma.dash_board.dash_board_manager']
+    autowire: true
 
   evrinoma.dash_board.api.controller:
     class: Evrinoma\DashBoardBundle\Controller\DashBoardApiController
@@ -9,6 +10,7 @@ services:
       - '@jms_serializer'
       - '@request_stack'
       - '@evrinoma.dash_board.dash_board_manager'
+    autowire: true
 
   evrinoma.dash_board.dash_board_manager:
     class: Evrinoma\DashBoardBundle\Manager\DashBoardManager
