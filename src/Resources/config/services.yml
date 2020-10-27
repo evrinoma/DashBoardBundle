@@ -27,27 +27,22 @@ services:
   Evrinoma\DashBoardBundle\Controller\DashBoardController:
     alias: evrinoma.dash_board.controller
     public: true
-    deprecated:
 
   Evrinoma\DashBoardBundle\Controller\DashBoardApiController:
     alias: evrinoma.dash_board.api.controller
     public: true
-    deprecated:
 
   Evrinoma\DashBoardBundle\Manager\DashBoardManager:
     alias: evrinoma.dash_board.dash_board_manager
     public: true
-    deprecated:
 
   Evrinoma\DashBoardBundle\Info\ProcInfo:
     alias:  evrinoma.dash_board.info.proc_info
     public: true
-    deprecated:
 
   Evrinoma\DashBoardBundle\Info\SysInfo:
     alias: evrinoma.dash_board.info.sys_info
     public: true
-    deprecated:
 
   Evrinoma\DashBoardBundle\Menu\DashBoardMenu:
     tags:
