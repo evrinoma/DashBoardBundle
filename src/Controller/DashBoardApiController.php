@@ -6,8 +6,7 @@ use Evrinoma\DashBoardBundle\Manager\DashBoardManager;
 use Evrinoma\UtilsBundle\Controller\AbstractApiController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use JMS\Serializer\SerializerInterface;
-use Nelmio\ApiDocBundle\Annotation\Model;
-use Swagger\Annotations as SWG;
+use OpenApi\Annotations as OA;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -49,8 +48,8 @@ final class DashBoardApiController extends AbstractApiController
 
     /**
      * @Rest\Get("/api/dashboard/status", options={"expose"=true}, name="api_dashboard_status")
-     * @SWG\Get(tags={"system"})
-     * @SWG\Response(response=200,description="Returns system status")
+     * @OA\Get(tags={"system"})
+     * @OA\Response(response=200,description="Returns system status")
      *
      * @param DashBoardManager $dashBoardManager
      *
