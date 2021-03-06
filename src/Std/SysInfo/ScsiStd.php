@@ -1,21 +1,16 @@
 <?php
 
 
-namespace Evrinoma\DashBoardBundle\Dto\SysInfo;
+namespace Evrinoma\DashBoardBundle\Std\SysInfo;
 
 
-use Evrinoma\DashBoardBundle\Dto\SysInfoDto;
+use Evrinoma\DashBoardBundle\Std\SysInfoStd;
 
-/**
- * Class ScsiDto
- *
- * @package Evrinoma\DashBoardBundle\Dto\SysInfo
- */
-class ScsiDto
+class ScsiStd
 {
 //region SECTION: Fields
-    private $model = SysInfoDto::UNKNOWN;
-    private $media = SysInfoDto::UNKNOWN;
+    private $model = SysInfoStd::UNKNOWN;
+    private $media = SysInfoStd::UNKNOWN;
 //endregion Fields
 
 //region SECTION: Getters/Setters
@@ -38,7 +33,7 @@ class ScsiDto
     /**
      * @param string $model
      *
-     * @return ScsiDto
+     * @return ScsiStd
      */
     public function setModel(string $model):self
     {
@@ -50,7 +45,7 @@ class ScsiDto
     /**
      * @param string $media
      *
-     * @return ScsiDto
+     * @return ScsiStd
      */
     public function setMedia(string $media):self
     {

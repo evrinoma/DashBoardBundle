@@ -10,6 +10,8 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class EvrinomaDashBoardBundle extends Bundle
 {
+    public const DASH_BOARD_BUNDLE = 'dashboard';
+
     public function getContainerExtension()
     {
         if (null === $this->extension) {

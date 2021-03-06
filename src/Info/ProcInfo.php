@@ -2,8 +2,8 @@
 
 namespace Evrinoma\DashBoardBundle\Info;
 
-use Evrinoma\DashBoardBundle\Dto\ProcInfo\ServiceDto;
-use Evrinoma\DashBoardBundle\Dto\ProcInfoDto;
+use Evrinoma\DashBoardBundle\Std\ProcInfo\ServiceStd;
+use Evrinoma\DashBoardBundle\Std\ProcInfoStd;
 use Evrinoma\DashBoardBundle\Provider\DefaultServiceInterface;
 use Evrinoma\DashBoardBundle\Provider\ProviderInterface;
 use Evrinoma\DashBoardBundle\Provider\ScanServiceInterface;
@@ -24,7 +24,7 @@ class ProcInfo implements InfoInterface
     private $pluginManager;
 
     /**
-     * @var ProcInfoDto
+     * @var ProcInfoStd
      */
     private $procInfo;
 //endregion Fields
@@ -32,7 +32,7 @@ class ProcInfo implements InfoInterface
 //region SECTION: Constructor
     public function __construct(ProviderInterface $pluginManager = null)
     {
-        $this->procInfo      = new ProcInfoDto();
+        $this->procInfo      = new ProcInfoStd();
         $this->pluginManager = $pluginManager;
     }
 //endregion Constructor
@@ -58,8 +58,8 @@ class ProcInfo implements InfoInterface
     {
         if ($this->pluginManager) {
             foreach ($this->pluginManager->getService() as $service) {
-                $serviceDto = new ServiceDto();
-                $serviceDto
+                $serviceStd = new ServiceStd();
+                $serviceStd
                     ->setName($service->getName())
                     ->setHost($service->getHost())
                     ->setPort($service->getPort());
@@ -67,19 +67,19 @@ class ProcInfo implements InfoInterface
                 switch (true) {
                     case $service instanceof ScanServiceInterface:
                         /** $service ScanServiceInterface */
-                        $serviceDto->setPort($this->checkPrefix($service->getHost(), $service->getProtocol()));
-                        $serviceDto->getPort() ? $serviceDto->setStatusOK() : $serviceDto->setStatusError();
+                        $serviceStd->setPort($this->checkPrefix($service->getHost(), $service->getProtocol()));
+                        $serviceStd->getPort() ? $serviceStd->setStatusOK() : $serviceStd->setStatusError();
                         break;
                     case $service instanceof DefaultServiceInterface:
                         /** $service DefaultServiceInterface */
                         $status = $this->checkPort($service->getHost(), $service->getPort());
-                        $status ? $serviceDto->setStatusOK() : $serviceDto->setStatusError();
+                        $status ? $serviceStd->setStatusOK() : $serviceStd->setStatusError();
                         break;
                     default:
                         throw new \Exception('Bad service implementation, please use one from the DefaultServiceInterface, ScanServiceInterface');
                 }
 
-                $this->procInfo->addService($serviceDto);
+                $this->procInfo->addService($serviceStd);
             }
         }
 
@@ -88,7 +88,7 @@ class ProcInfo implements InfoInterface
 
     private function checkLocalWeb():self
     {
-        $service = new ServiceDto();
+        $service = new ServiceStd();
         $service
             ->setName('Web Server')
             ->setHost('localhost')

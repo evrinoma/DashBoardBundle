@@ -3,12 +3,12 @@
 namespace Evrinoma\DashBoardBundle\Info;
 
 
-use Evrinoma\DashBoardBundle\Dto\SysInfo\CpuDto;
-use Evrinoma\DashBoardBundle\Dto\SysInfo\DevDto;
-use Evrinoma\DashBoardBundle\Dto\SysInfo\DiskDto;
-use Evrinoma\DashBoardBundle\Dto\SysInfo\NetworkDto;
-use Evrinoma\DashBoardBundle\Dto\SysInfo\ScsiDto;
-use Evrinoma\DashBoardBundle\Dto\SysInfoDto;
+use Evrinoma\DashBoardBundle\Std\SysInfo\CpuStd;
+use Evrinoma\DashBoardBundle\Std\SysInfo\DevStd;
+use Evrinoma\DashBoardBundle\Std\SysInfo\DiskStd;
+use Evrinoma\DashBoardBundle\Std\SysInfo\NetworkStd;
+use Evrinoma\DashBoardBundle\Std\SysInfo\ScsiStd;
+use Evrinoma\DashBoardBundle\Std\SysInfoStd;
 use Evrinoma\ShellBundle\Core\ShellInterface;
 
 /**
@@ -23,7 +23,7 @@ class SysInfo implements InfoInterface
     private const ERROR         = 'ERROR';
 
     /**
-     * @var SysInfoDto
+     * @var SysInfoStd
      */
     private $sysInfo;
 
@@ -41,7 +41,7 @@ class SysInfo implements InfoInterface
      */
     public function __construct(ShellInterface $shellManager)
     {
-        $this->sysInfo      = new SysInfoDto();
+        $this->sysInfo      = new SysInfoStd();
         $this->shellManager = $shellManager;
     }
 
@@ -175,7 +175,7 @@ class SysInfo implements InfoInterface
     protected function getCpuInfo(): SysInfo
     {
         if ($this->shellManager->rfts('/proc/cpuinfo')) {
-            $cpu = new CpuDto();
+            $cpu = new CpuStd();
             foreach ($this->shellManager->toArrayString() as $item) {
                 $splite = preg_split('/\s+:\s+/', $item);
                 if (count($splite) > 1) {
@@ -239,7 +239,7 @@ class SysInfo implements InfoInterface
             foreach ($this->shellManager->toArrayString() as $buf) {
                 $device = explode(' ', $buf, 4);
                 if (array_key_exists(3, $device)) {
-                    $pci = new DevDto();
+                    $pci = new DevStd();
                     $pci->setProduct($device[2].$device[1])->setSerialNumber($device[0])->setDescription($device[3]);
                     $this->sysInfo->addPci($pci);
                 }
@@ -265,7 +265,7 @@ class SysInfo implements InfoInterface
 
                 if ($get_type) {
                     preg_match('/Type:\s+(\S+)/i', $buf, $dev_type);
-                    $scsi = new ScsiDto();
+                    $scsi = new ScsiStd();
                     $scsi
                         ->setModel($dev[1].' '.$dev[2].' ('.$dev_type[1].')')
                         ->setMedia('Hard Disk');
@@ -284,7 +284,7 @@ class SysInfo implements InfoInterface
             foreach ($this->shellManager->toArrayString() as $buf) {
                 $device = explode(' ', $buf, 7);
                 if (array_key_exists(6, $device)) {
-                    $usb = new DevDto();
+                    $usb = new DevStd();
                     $usb->setProduct($device[6])->setSerialNumber($device[5]);
                     $this->sysInfo->addUsb($usb);
                 }
@@ -305,7 +305,7 @@ class SysInfo implements InfoInterface
                     $j    = count($values);
                     $stop = false;
                 }
-                $usb = new DevDto();
+                $usb = new DevStd();
                 for (; $i < $j; $i++) {
                     [$key, $value] = explode('=', $values[$i], 2);
                     switch ($key) {
@@ -333,7 +333,7 @@ class SysInfo implements InfoInterface
             foreach (preg_grep('/:/', $this->shellManager->toArrayString()) as $buf) {
                 [$dev_name, $stats_list] = explode(':', $buf, 2);
                 $stats   = preg_split('/\s+/', trim($stats_list));
-                $network = new NetworkDto();
+                $network = new NetworkStd();
                 $network->setName($dev_name)
                     ->setRxBytes($stats[0])
                     ->setRxPackets($stats[1])
@@ -384,7 +384,7 @@ class SysInfo implements InfoInterface
                 foreach ($this->shellManager->toArrayString() as $item) {
                     if ($item !== '' & (strpos($item, 'Filename') === false)) {
                         $arBuf   = preg_split('/\s+/', $item, 6);
-                        $devSwap = new DiskDto();
+                        $devSwap = new DiskStd();
                         $devSwap->setName($arBuf[0])
                             ->setTotal((int)$arBuf[2])
                             ->setUsed((int)$arBuf[3]);
@@ -447,7 +447,7 @@ class SysInfo implements InfoInterface
                 }
 
                 if ($showBind || false === stripos($mount_buf[2], 'bind')) {
-                    $disk = new DiskDto();
+                    $disk = new DiskStd();
                     $disk
                         ->setName(str_replace("\\$", '$', $df_buf[0]))
                         ->setTotal($df_buf[1] * 1000)

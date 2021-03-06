@@ -1,9 +1,9 @@
 <?php
 
-namespace Evrinoma\DashBoardBundle\Dto\ProcInfo;
+namespace Evrinoma\DashBoardBundle\Std\ProcInfo;
 
 
-class ServiceDto
+class ServiceStd
 {
 //region SECTION: Fields
     private const STATUS_OK    = 'OK';
@@ -87,7 +87,7 @@ class ServiceDto
     /**
      * @param mixed $name
      *
-     * @return ServiceDto
+     * @return ServiceStd
      */
     public function setName($name)
     {
@@ -99,7 +99,7 @@ class ServiceDto
     /**
      * @param mixed $status
      *
-     * @return ServiceDto
+     * @return ServiceStd
      */
     public function setStatus($status)
     {
@@ -111,7 +111,7 @@ class ServiceDto
     /**
      * @param mixed $host
      *
-     * @return ServiceDto
+     * @return ServiceStd
      */
     public function setHost($host)
     {
@@ -123,7 +123,7 @@ class ServiceDto
     /**
      * @param mixed $port
      *
-     * @return ServiceDto
+     * @return ServiceStd
      */
     public function setPort($port)
     {

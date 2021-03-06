@@ -1,16 +1,11 @@
 <?php
 
-namespace Evrinoma\DashBoardBundle\Dto\SysInfo;
+namespace Evrinoma\DashBoardBundle\Std\SysInfo;
 
 
 use Evrinoma\DashBoardBundle\Core\SizeTrait;
 
-/**
- * Class DiskDto
- *
- * @package App\Dto\SysInfo
- */
-class DiskDto
+class DiskStd
 {
     use SizeTrait;
 
@@ -118,7 +113,7 @@ class DiskDto
     /**
      * @param mixed $inodes
      *
-     * @return DiskDto
+     * @return DiskStd
      */
     public function setInodes($inodes):self
     {
@@ -130,7 +125,7 @@ class DiskDto
     /**
      * @param mixed $options
      *
-     * @return DiskDto
+     * @return DiskStd
      */
     public function setOptions($options):self
     {
@@ -142,7 +137,7 @@ class DiskDto
     /**
      * @param string $fstype
      *
-     * @return DiskDto
+     * @return DiskStd
      */
     public function setFstype($fstype):self
     {
@@ -154,7 +149,7 @@ class DiskDto
     /**
      * @param string $mount
      *
-     * @return DiskDto
+     * @return DiskStd
      */
     public function setMount($mount):self
     {
@@ -166,7 +161,7 @@ class DiskDto
     /**
      * @param int $free
      *
-     * @return DiskDto
+     * @return DiskStd
      */
     public function setFree($free):self
     {
@@ -202,7 +197,7 @@ class DiskDto
     /**
      * @param int $devSwapTotal
      *
-     * @return DiskDto
+     * @return DiskStd
      */
     public function setTotal($devSwapTotal):self
     {

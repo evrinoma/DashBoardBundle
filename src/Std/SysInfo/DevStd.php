@@ -1,13 +1,9 @@
 <?php
 
-namespace Evrinoma\DashBoardBundle\Dto\SysInfo;
+namespace Evrinoma\DashBoardBundle\Std\SysInfo;
 
-/**
- * Class DevDto
- *
- * @package App\Dashboard\Dto\SysInfo
- */
-class DevDto
+
+class DevStd
 {
 //region SECTION: Fields
     private $description;
@@ -43,7 +39,7 @@ class DevDto
     /**
      * @param mixed $description
      *
-     * @return DevDto
+     * @return DevStd
      */
     public function setDescription($description)
     {
@@ -55,7 +51,7 @@ class DevDto
     /**
      * @param mixed $product
      *
-     * @return DevDto
+     * @return DevStd
      */
     public function setProduct($product)
     {
@@ -67,7 +63,7 @@ class DevDto
     /**
      * @param mixed $serialNumber
      *
-     * @return DevDto
+     * @return DevStd
      */
     public function setSerialNumber($serialNumber)
     {

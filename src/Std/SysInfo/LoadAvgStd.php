@@ -1,13 +1,9 @@
 <?php
 
-namespace Evrinoma\DashBoardBundle\Dto\SysInfo;
+namespace Evrinoma\DashBoardBundle\Std\SysInfo;
 
-/**
- * Class LoadAvgDto
- *
- * @package Evrinoma\DashBoardBundle\Dto\SysInfo
- */
-class LoadAvgDto
+
+class LoadAvgStd
 {
 //region SECTION: Fields
     private $loadAve1  = 0;
@@ -157,7 +153,7 @@ class LoadAvgDto
     /**
      * @param int $userCpuLast
      *
-     * @return LoadAvgDto
+     * @return LoadAvgStd
      */
     public function setUserCpuLast(int $userCpuLast):self
     {
@@ -169,7 +165,7 @@ class LoadAvgDto
     /**
      * @param int $niceCpuLast
      *
-     * @return LoadAvgDto
+     * @return LoadAvgStd
      */
     public function setNiceCpuLast(int $niceCpuLast):self
     {
@@ -181,7 +177,7 @@ class LoadAvgDto
     /**
      * @param int $systemCpuLast
      *
-     * @return LoadAvgDto
+     * @return LoadAvgStd
      */
     public function setSystemCpuLast(int $systemCpuLast):self
     {
@@ -193,7 +189,7 @@ class LoadAvgDto
     /**
      * @param int $idleCpuLast
      *
-     * @return LoadAvgDto
+     * @return LoadAvgStd
      */
     public function setIdleCpuLast(int $idleCpuLast):self
     {
@@ -205,7 +201,7 @@ class LoadAvgDto
     /**
      * @param int $userCpuNext
      *
-     * @return LoadAvgDto
+     * @return LoadAvgStd
      */
     public function setUserCpuNext(int $userCpuNext):self
     {
@@ -217,7 +213,7 @@ class LoadAvgDto
     /**
      * @param int $niceCpuNext
      *
-     * @return LoadAvgDto
+     * @return LoadAvgStd
      */
     public function setNiceCpuNext(int $niceCpuNext):self
     {
@@ -229,7 +225,7 @@ class LoadAvgDto
     /**
      * @param int $systemCpuNext
      *
-     * @return LoadAvgDto
+     * @return LoadAvgStd
      */
     public function setSystemCpuNext(int $systemCpuNext):self
     {
@@ -241,7 +237,7 @@ class LoadAvgDto
     /**
      * @param int $idleCpuNext
      *
-     * @return LoadAvgDto
+     * @return LoadAvgStd
      */
     public function setIdleCpuNext(int $idleCpuNext):self
     {
@@ -253,7 +249,7 @@ class LoadAvgDto
     /**
      * @param mixed $loadAve1
      *
-     * @return LoadAvgDto
+     * @return LoadAvgStd
      */
     public function setLoadAve1($loadAve1):self
     {
@@ -265,7 +261,7 @@ class LoadAvgDto
     /**
      * @param mixed $loadAve5
      *
-     * @return LoadAvgDto
+     * @return LoadAvgStd
      */
     public function setLoadAve5($loadAve5):self
     {
@@ -277,7 +273,7 @@ class LoadAvgDto
     /**
      * @param mixed $loadAve15
      *
-     * @return LoadAvgDto
+     * @return LoadAvgStd
      */
     public function setLoadAve15($loadAve15):self
     {

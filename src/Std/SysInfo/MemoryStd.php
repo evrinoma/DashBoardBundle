@@ -1,16 +1,11 @@
 <?php
 
-namespace Evrinoma\DashBoardBundle\Dto\SysInfo;
+namespace Evrinoma\DashBoardBundle\Std\SysInfo;
 
 use Evrinoma\DashBoardBundle\Core\SizeTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 
-/**
- * Class MemoryDto
- *
- * @package Evrinoma\DashBoardBundle\Dto\SysInfo
- */
-class MemoryDto
+class MemoryStd
 {
     use SizeTrait;
 
@@ -26,7 +21,7 @@ class MemoryDto
 
 //region SECTION: Constructor
     /**
-     * MemoryDto constructor.
+     * MemoryStd constructor.
      */
     public function __construct()
     {
@@ -36,11 +31,11 @@ class MemoryDto
 
 //region SECTION: Public
     /**
-     * @param DiskDto $devSwap
+     * @param DiskStd $devSwap
      *
-     * @return MemoryDto
+     * @return MemoryStd
      */
-    public function addDevSwap(DiskDto $devSwap):self
+    public function addDevSwap(DiskStd $devSwap):self
     {
         $this->devSwap->add($devSwap);
 
@@ -205,7 +200,7 @@ class MemoryDto
     /**
      * @param mixed $buffers
      *
-     * @return MemoryDto
+     * @return MemoryStd
      */
     public function setBuffers(int $buffers):self
     {
@@ -217,7 +212,7 @@ class MemoryDto
     /**
      * @param mixed $memTotal
      *
-     * @return MemoryDto
+     * @return MemoryStd
      */
     public function setMemTotal(int $memTotal):self
     {
@@ -229,7 +224,7 @@ class MemoryDto
     /**
      * @param mixed $memFree
      *
-     * @return MemoryDto
+     * @return MemoryStd
      */
     public function setMemFree(int $memFree):self
     {
@@ -241,7 +236,7 @@ class MemoryDto
     /**
      * @param mixed $cached
      *
-     * @return MemoryDto
+     * @return MemoryStd
      */
     public function setCached(int $cached):self
     {
@@ -253,7 +248,7 @@ class MemoryDto
     /**
      * @param mixed $swapTotal
      *
-     * @return MemoryDto
+     * @return MemoryStd
      */
     public function setSwapTotal(int $swapTotal):self
     {
@@ -265,7 +260,7 @@ class MemoryDto
     /**
      * @param mixed $swapFree
      *
-     * @return MemoryDto
+     * @return MemoryStd
      */
     public function setSwapFree(int $swapFree):self
     {

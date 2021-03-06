@@ -3,6 +3,7 @@
 
 namespace Evrinoma\DashBoardBundle\DependencyInjection;
 
+use Evrinoma\DashBoardBundle\EvrinomaDashBoardBundle;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Alias;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -53,7 +54,7 @@ class EvrinomaDashBoardExtension extends Extension
 //region SECTION: Getters/Setters
     public function getAlias()
     {
-        return 'dashboard';
+        return EvrinomaDashBoardBundle::DASH_BOARD_BUNDLE;
     }
 //endregion Getters/Setters
 }

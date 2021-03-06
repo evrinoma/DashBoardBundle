@@ -1,28 +1,23 @@
 <?php
 
-namespace Evrinoma\DashBoardBundle\Dto;
+namespace Evrinoma\DashBoardBundle\Std;
 
 
-use Evrinoma\DashBoardBundle\Dto\ProcInfo\ServiceDto;
+use Evrinoma\DashBoardBundle\Std\ProcInfo\ServiceStd;
 use Doctrine\Common\Collections\ArrayCollection;
 
-/**
- * Class ProcInfoDto
- *
- * @package Evrinoma\DashBoardBundle\Dto
- */
-class ProcInfoDto
+class ProcInfoStd
 {
 //region SECTION: Fields
     /**
-     * @var ServiceDto[]
+     * @var ServiceStd[]
      */
     private $service;
 //endregion Fields
 
 //region SECTION: Constructor
     /**
-     * ProcInfoDto constructor.
+     * ProcInfoStd constructor.
      */
     public function __construct()
     {

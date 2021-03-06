@@ -1,22 +1,17 @@
 <?php
 
-namespace Evrinoma\DashBoardBundle\Dto;
+namespace Evrinoma\DashBoardBundle\Std;
 
-use Evrinoma\DashBoardBundle\Dto\SysInfo\CpuDto;
-use Evrinoma\DashBoardBundle\Dto\SysInfo\DevDto;
-use Evrinoma\DashBoardBundle\Dto\SysInfo\DiskDto;
-use Evrinoma\DashBoardBundle\Dto\SysInfo\LoadAvgDto;
-use Evrinoma\DashBoardBundle\Dto\SysInfo\MemoryDto;
-use Evrinoma\DashBoardBundle\Dto\SysInfo\NetworkDto;
-use Evrinoma\DashBoardBundle\Dto\SysInfo\ScsiDto;
+use Evrinoma\DashBoardBundle\Std\SysInfo\CpuStd;
+use Evrinoma\DashBoardBundle\Std\SysInfo\DevStd;
+use Evrinoma\DashBoardBundle\Std\SysInfo\DiskStd;
+use Evrinoma\DashBoardBundle\Std\SysInfo\LoadAvgStd;
+use Evrinoma\DashBoardBundle\Std\SysInfo\MemoryStd;
+use Evrinoma\DashBoardBundle\Std\SysInfo\NetworkStd;
+use Evrinoma\DashBoardBundle\Std\SysInfo\ScsiStd;
 use Doctrine\Common\Collections\ArrayCollection;
 
-/**
- * Class SysInfoDto
- *
- * @package Evrinoma\DashBoardBundle\Dto
- */
-class SysInfoDto
+class SysInfoStd
 {
 //region SECTION: Fields
     public const UNKNOWN = 'unknown';
@@ -30,44 +25,44 @@ class SysInfoDto
     private $users     = self::UNKNOWN;
     private $loadAvg;
     /**
-     * @var ScsiDto[]
+     * @var ScsiStd[]
      */
     private $scsi;
     /**
-     * @var DevDto[]
+     * @var DevStd[]
      */
     private $usb;
     /**
-     * @var DevDto[]
+     * @var DevStd[]
      */
     private $pci;
     /**
-     * @var NetworkDto[]
+     * @var NetworkStd[]
      */
     private $network;
     /**
-     * @var DiskDto[]
+     * @var DiskStd[]
      */
     private $disk;
     private $memory;
     /**
-     * @var CpuDto[]
+     * @var CpuStd[]
      */
     private $cpu;
 //endregion Fields
 
 //region SECTION: Constructor
     /**
-     * SysInfoDto constructor.
+     * SysInfoStd constructor.
      */
     public function __construct()
     {
-        $this->loadAvg = new LoadAvgDto();
+        $this->loadAvg = new LoadAvgStd();
         $this->scsi    = new ArrayCollection();
         $this->usb     = new ArrayCollection();
         $this->pci     = new ArrayCollection();
         $this->network = new ArrayCollection();
-        $this->memory  = new MemoryDto();
+        $this->memory  = new MemoryStd();
         $this->disk    = new ArrayCollection();
         $this->cpu     = new ArrayCollection();
     }
@@ -75,11 +70,11 @@ class SysInfoDto
 
 //region SECTION: Public
     /**
-     * @param CpuDto $cpu
+     * @param CpuStd $cpu
      *
      * @return $this
      */
-    public function addCpu(CpuDto $cpu)
+    public function addCpu(CpuStd $cpu)
     {
         $this->cpu->add($cpu);
 
@@ -87,11 +82,11 @@ class SysInfoDto
     }
 
     /**
-     * @param DiskDto $disk
+     * @param DiskStd $disk
      *
      * @return $this
      */
-    public function addDisk(DiskDto $disk)
+    public function addDisk(DiskStd $disk)
     {
         $this->disk->add($disk);
 
@@ -99,11 +94,11 @@ class SysInfoDto
     }
 
     /**
-     * @param NetworkDto $network
+     * @param NetworkStd $network
      *
      * @return $this
      */
-    public function addNetwork(NetworkDto $network)
+    public function addNetwork(NetworkStd $network)
     {
         $this->network->add($network);
 
@@ -111,11 +106,11 @@ class SysInfoDto
     }
 
     /**
-     * @param DevDto $pci
+     * @param DevStd $pci
      *
      * @return $this
      */
-    public function addPci(DevDto $pci)
+    public function addPci(DevStd $pci)
     {
         $this->pci->add($pci);
 
@@ -123,11 +118,11 @@ class SysInfoDto
     }
 
     /**
-     * @param DevDto $usb
+     * @param DevStd $usb
      *
      * @return $this
      */
-    public function addUsb(DevDto $usb)
+    public function addUsb(DevStd $usb)
     {
         $this->usb->add($usb);
 
@@ -135,11 +130,11 @@ class SysInfoDto
     }
 
     /**
-     * @param ScsiDto $scsi
+     * @param ScsiStd $scsi
      *
-     * @return SysInfoDto
+     * @return SysInfoStd
      */
-    public function addScsi(ScsiDto $scsi)
+    public function addScsi(ScsiStd $scsi)
     {
         $this->scsi->add($scsi);
 
@@ -165,9 +160,9 @@ class SysInfoDto
     }
 
     /**
-     * @return MemoryDto
+     * @return MemoryStd
      */
-    public function getMemory(): MemoryDto
+    public function getMemory(): MemoryStd
     {
         return $this->memory;
     }
@@ -205,9 +200,9 @@ class SysInfoDto
     }
 
     /**
-     * @return LoadAvgDto
+     * @return LoadAvgStd
      */
-    public function getLoadAvg(): LoadAvgDto
+    public function getLoadAvg(): LoadAvgStd
     {
         return $this->loadAvg;
     }
@@ -279,7 +274,7 @@ class SysInfoDto
     /**
      * @param string $users
      *
-     * @return SysInfoDto
+     * @return SysInfoStd
      */
     public function setUsers(string $users)
     {
@@ -291,7 +286,7 @@ class SysInfoDto
     /**
      * @param string $upTime
      *
-     * @return SysInfoDto
+     * @return SysInfoStd
      */
     public function setUpTime(string $upTime)
     {
@@ -303,7 +298,7 @@ class SysInfoDto
     /**
      * @param string $kernel
      *
-     * @return SysInfoDto
+     * @return SysInfoStd
      */
     public function setKernel(string $kernel)
     {
@@ -315,7 +310,7 @@ class SysInfoDto
     /**
      * @param string $ipAddress
      *
-     * @return SysInfoDto
+     * @return SysInfoStd
      */
     public function setIpAddress(string $ipAddress)
     {
@@ -327,7 +322,7 @@ class SysInfoDto
     /**
      * @param string $cHostName
      *
-     * @return SysInfoDto
+     * @return SysInfoStd
      */
     public function setCHostName(string $cHostName)
     {
@@ -339,7 +334,7 @@ class SysInfoDto
     /**
      * @param mixed $vHostName
      *
-     * @return SysInfoDto
+     * @return SysInfoStd
      */
     public function setVHostName($vHostName)
     {
@@ -351,7 +346,7 @@ class SysInfoDto
     /**
      * @param string $distrName
      *
-     * @return SysInfoDto
+     * @return SysInfoStd
      */
     public function setDistrName(string $distrName)
     {
@@ -363,7 +358,7 @@ class SysInfoDto
     /**
      * @param string $distr
      *
-     * @return SysInfoDto
+     * @return SysInfoStd
      */
     public function setDistr(string $distr)
     {

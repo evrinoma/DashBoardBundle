@@ -1,13 +1,8 @@
 <?php
 
-namespace Evrinoma\DashBoardBundle\Dto\SysInfo;
+namespace Evrinoma\DashBoardBundle\Std\SysInfo;
 
-/**
- * Class CpuDto
- *
- * @package App\Dashboard\Dto\SysInfo
- */
-class CpuDto
+class CpuStd
 {
 //region SECTION: Fields
     private $model    = '';
@@ -20,7 +15,7 @@ class CpuDto
     /**
      * @param mixed $cache
      *
-     * @return CpuDto
+     * @return CpuStd
      */
     public function addCache($cache)
     {
@@ -32,7 +27,7 @@ class CpuDto
     /**
      * @param mixed $bogomips
      *
-     * @return CpuDto
+     * @return CpuStd
      */
     public function addBogomips($bogomips)
     {
@@ -78,7 +73,7 @@ class CpuDto
     /**
      * @param mixed $model
      *
-     * @return CpuDto
+     * @return CpuStd
      */
     public function setModel($model):self
     {
@@ -90,7 +85,7 @@ class CpuDto
     /**
      * @param mixed $cpuSpeed
      *
-     * @return CpuDto
+     * @return CpuStd
      */
     public function setCpuSpeed($cpuSpeed):self
     {
@@ -102,7 +97,7 @@ class CpuDto
     /**
      * @param mixed $cache
      *
-     * @return CpuDto
+     * @return CpuStd
      */
     public function setCache($cache):self
     {
@@ -114,7 +109,7 @@ class CpuDto
     /**
      * @param mixed $bogomips
      *
-     * @return CpuDto
+     * @return CpuStd
      */
     public function setBogomips($bogomips):self
     {

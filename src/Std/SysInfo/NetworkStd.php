@@ -1,13 +1,8 @@
 <?php
 
-namespace Evrinoma\DashBoardBundle\Dto\SysInfo;
+namespace Evrinoma\DashBoardBundle\Std\SysInfo;
 
-/**
- * Class NetworkDto
- *
- * @package Evrinoma\DashBoardBundle\Dto\SysInfo
- */
-class NetworkDto
+class NetworkStd
 {
 //region SECTION: Fields
     private $name;
@@ -115,7 +110,7 @@ class NetworkDto
     /**
      * @param mixed $name
      *
-     * @return NetworkDto
+     * @return NetworkStd
      */
     public function setName($name):self
     {
@@ -127,7 +122,7 @@ class NetworkDto
     /**
      * @param mixed $rxBytes
      *
-     * @return NetworkDto
+     * @return NetworkStd
      */
     public function setRxBytes($rxBytes):self
     {
@@ -139,7 +134,7 @@ class NetworkDto
     /**
      * @param mixed $rxPackets
      *
-     * @return NetworkDto
+     * @return NetworkStd
      */
     public function setRxPackets($rxPackets):self
     {
@@ -151,7 +146,7 @@ class NetworkDto
     /**
      * @param mixed $rxErrors
      *
-     * @return NetworkDto
+     * @return NetworkStd
      */
     public function setRxErrors($rxErrors):self
     {
@@ -163,7 +158,7 @@ class NetworkDto
     /**
      * @param mixed $rxDrop
      *
-     * @return NetworkDto
+     * @return NetworkStd
      */
     public function setRxDrop($rxDrop):self
     {
@@ -175,7 +170,7 @@ class NetworkDto
     /**
      * @param mixed $txBytes
      *
-     * @return NetworkDto
+     * @return NetworkStd
      */
     public function setTxBytes($txBytes):self
     {
@@ -187,7 +182,7 @@ class NetworkDto
     /**
      * @param mixed $txPackets
      *
-     * @return NetworkDto
+     * @return NetworkStd
      */
     public function setTxPackets($txPackets):self
     {
@@ -199,7 +194,7 @@ class NetworkDto
     /**
      * @param mixed $txErrors
      *
-     * @return NetworkDto
+     * @return NetworkStd
      */
     public function setTxErrors($txErrors):self
     {
@@ -211,7 +206,7 @@ class NetworkDto
     /**
      * @param mixed $txDrop
      *
-     * @return NetworkDto
+     * @return NetworkStd
      */
     public function setTxDrop($txDrop):self
     {
