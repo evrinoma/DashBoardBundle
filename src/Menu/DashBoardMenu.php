@@ -7,6 +7,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Evrinoma\DashBoardBundle\Voter\DashBoardRoleInterface;
 use Evrinoma\MenuBundle\Entity\MenuItem;
 use Evrinoma\MenuBundle\Menu\MenuInterface;
+use Evrinoma\UtilsBundle\Voter\RoleInterface;
 
 /**
  * Class DashBoardMenu
@@ -16,11 +17,12 @@ use Evrinoma\MenuBundle\Menu\MenuInterface;
 final class DashBoardMenu implements MenuInterface
 {
 
+//region SECTION: Public
     public function create(EntityManagerInterface $em): void
     {
         $display = new MenuItem();
         $display
-            ->setRole([DashBoardRoleInterface::ROLE_STATUS])
+            ->setRole([RoleInterface::ROLE_SUPER_ADMIN, DashBoardRoleInterface::ROLE_STATUS])
             ->setName('Status')
             ->setRoute('dashboard_status')
             ->setTag($this->tag());
@@ -37,4 +39,5 @@ final class DashBoardMenu implements MenuInterface
     {
         return MenuInterface::DEFAULT_TAG;
     }
+//endregion Public
 }
