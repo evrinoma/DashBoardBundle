@@ -3,31 +3,23 @@
 
 namespace Evrinoma\DashBoardBundle\Menu;
 
-use Doctrine\ORM\EntityManagerInterface;
 use Evrinoma\DashBoardBundle\Voter\DashBoardRoleInterface;
-use Evrinoma\MenuBundle\Entity\MenuItem;
-use Evrinoma\MenuBundle\Menu\MenuInterface;
+use Evrinoma\MenuBundle\Dto\Preserve\MenuApiDto;
+use Evrinoma\MenuBundle\Registry\ObjectInterface;
 use Evrinoma\SecurityBundle\Voter\RoleInterface;
 
-/**
- * Class DashBoardMenu
- *
- * @package Evrinoma\DashBoardBundle\Menu
- */
-final class DashBoardMenu implements MenuInterface
+final class DashBoardMenu implements ObjectInterface
 {
 
 //region SECTION: Public
-    public function create(EntityManagerInterface $em): void
+    public function create(): void
     {
-        $display = new MenuItem();
+        $display = new MenuApiDto();
         $display
-            ->setRole([RoleInterface::ROLE_SUPER_ADMIN, DashBoardRoleInterface::ROLE_STATUS])
             ->setName('Status')
+            ->setRoles([RoleInterface::ROLE_SUPER_ADMIN, DashBoardRoleInterface::ROLE_STATUS])
             ->setRoute('dashboard_status')
             ->setTag($this->tag());
-
-        $em->persist($display);
     }
 
     public function order(): int
@@ -37,7 +29,7 @@ final class DashBoardMenu implements MenuInterface
 
     public function tag(): string
     {
-        return MenuInterface::DEFAULT_TAG;
+        return ObjectInterface::DEFAULT_TAG;
     }
 //endregion Public
 }
