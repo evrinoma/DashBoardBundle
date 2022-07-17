@@ -4,6 +4,7 @@
 namespace Evrinoma\DashBoardBundle\DependencyInjection;
 
 use Evrinoma\DashBoardBundle\EvrinomaDashBoardBundle;
+use Evrinoma\DashBoardBundle\Menu\DashBoardMenu;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Alias;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -37,24 +38,24 @@ class EvrinomaDashBoardExtension extends Extension
         if ($provider) {
             $definition->setArgument(0, new Reference($provider));
         }
-        $configuration = $this->getConfiguration($configs, $container);
-        $config        = $this->processConfiguration($configuration, $configs);
 
-        $menu = $config['menu'];
-
-        $definition = new Definition($menu);
-        $definition->addTag('evrinoma.menu');
-        $alias = new Alias('evrinoma.dash_board.menu');
-
-        $container->addDefinitions(['evrinoma.dash_board.menu' => $definition]);
-        $container->addAliases([$menu => $alias]);
+        if ($config['registry']) {
+            foreach ($config['registry'] as $key => $item) {
+                switch (!$item) {
+                    case str_contains(DashBoardMenu::class, $key)   :
+                            $container->removeDefinition(DashBoardMenu::class);
+                        break;
+                    default:
+                }
+            }
+        }
     }
 //endregion Public
 
 //region SECTION: Getters/Setters
     public function getAlias()
     {
-        return EvrinomaDashBoardBundle::DASH_BOARD_BUNDLE;
+        return EvrinomaDashBoardBundle::BUNDLE;
     }
 //endregion Getters/Setters
 }
