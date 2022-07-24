@@ -156,11 +156,11 @@ class LoadAvgStd
     }
 
     /**
-     * @param int $userCpuLast
+     * @param float $userCpuLast
      *
      * @return LoadAvgStd
      */
-    public function setUserCpuLast(int $userCpuLast): self
+    public function setUserCpuLast(float $userCpuLast): self
     {
         $this->userCpuLast = $userCpuLast;
 
@@ -172,7 +172,7 @@ class LoadAvgStd
      *
      * @return LoadAvgStd
      */
-    public function setNiceCpuLast(int $niceCpuLast): self
+    public function setNiceCpuLast(float $niceCpuLast): self
     {
         $this->niceCpuLast = $niceCpuLast;
 
@@ -184,7 +184,7 @@ class LoadAvgStd
      *
      * @return LoadAvgStd
      */
-    public function setSystemCpuLast(int $systemCpuLast): self
+    public function setSystemCpuLast(float $systemCpuLast): self
     {
         $this->systemCpuLast = $systemCpuLast;
 
@@ -196,7 +196,7 @@ class LoadAvgStd
      *
      * @return LoadAvgStd
      */
-    public function setIdleCpuLast(int $idleCpuLast): self
+    public function setIdleCpuLast(float $idleCpuLast): self
     {
         $this->idleCpuLast = $idleCpuLast;
 
@@ -208,7 +208,7 @@ class LoadAvgStd
      *
      * @return LoadAvgStd
      */
-    public function setUserCpuNext(int $userCpuNext): self
+    public function setUserCpuNext(float $userCpuNext): self
     {
         $this->userCpuNext = $userCpuNext;
 
@@ -220,7 +220,7 @@ class LoadAvgStd
      *
      * @return LoadAvgStd
      */
-    public function setNiceCpuNext(int $niceCpuNext): self
+    public function setNiceCpuNext(float $niceCpuNext): self
     {
         $this->niceCpuNext = $niceCpuNext;
 
@@ -232,7 +232,7 @@ class LoadAvgStd
      *
      * @return LoadAvgStd
      */
-    public function setSystemCpuNext(int $systemCpuNext): self
+    public function setSystemCpuNext(float $systemCpuNext): self
     {
         $this->systemCpuNext = $systemCpuNext;
 
@@ -244,7 +244,7 @@ class LoadAvgStd
      *
      * @return LoadAvgStd
      */
-    public function setIdleCpuNext(int $idleCpuNext): self
+    public function setIdleCpuNext(float $idleCpuNext): self
     {
         $this->idleCpuNext = $idleCpuNext;
 
