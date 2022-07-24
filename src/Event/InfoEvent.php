@@ -6,14 +6,14 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 class InfoEvent extends Event
 {
-//region SECTION: Fields
+
     /**
      * @var array
      */
     protected $info;
-//endregion Fields
 
-//region SECTION: Constructor
+
+
     /**
      * UserEvent constructor.
      */
@@ -21,9 +21,9 @@ class InfoEvent extends Event
     {
         $this->info = $info;
     }
-//endregion Constructor
 
-//region SECTION: Public
+
+
     /**
      * @param array $additional
      */
@@ -31,9 +31,9 @@ class InfoEvent extends Event
     {
         $this->info += $additional;
     }
-//endregion Public
 
-//region SECTION: Getters/Setters
+
+
     /**
      * @return array
      */
@@ -41,5 +41,5 @@ class InfoEvent extends Event
     {
         return $this->info;
     }
-//endregion Getters/Setters
+
 }

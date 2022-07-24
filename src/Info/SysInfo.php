@@ -18,7 +18,7 @@ use Evrinoma\ShellBundle\Core\ShellInterface;
  */
 class SysInfo implements InfoInterface
 {
-//region SECTION: Fields
+
     private const NOT_AVAILABLE = 'N.A.';
     private const ERROR         = 'ERROR';
 
@@ -31,9 +31,9 @@ class SysInfo implements InfoInterface
      * @var ShellInterface
      */
     private $shellManager;
-//endregion Fields
 
-//region SECTION: Constructor
+
+
     /**
      * SysInfo constructor.
      *
@@ -45,35 +45,6 @@ class SysInfo implements InfoInterface
         $this->shellManager = $shellManager;
     }
 
-//endregion Constructor
-
-//region SECTION: Protected
-    // get the distro name and icon when create the sysinfo object
-//    function sysinfo() {
-//
-//        $this->parser = new Parser();
-//        $this->parser->df_param = 'Pl';
-//
-//        $list = parse_ini_file(APP_ROOT . "/" . $this->inifile, true);
-//        if (!$list) {
-//            return;
-//        }
-//        foreach ($list as $section => $distribution) {
-//            if (!isset($distribution["Files"])) {
-//                continue;
-//            } else {
-//                foreach (explode(";", $distribution["Files"]) as $filename) {
-//                    if (file_exists($filename)) {
-//                        $buf = rfts( $filename );
-//                        $this->icon = isset($distribution["Image"]) ? $distribution["Image"] : $this->icon;
-//                        $this->distro = isset($distribution["Name"]) ? $distribution["Name"] . " " . trim($buf) : trim($buf);
-//                        $this->distroname = $section;
-//                        break 2;
-//                    }
-//                }
-//            }
-//        }
-//    }
 
     // get our apache SERVER_NAME or vhost
     protected function getDistr(): SysInfo
@@ -472,9 +443,9 @@ class SysInfo implements InfoInterface
 
         return $this;
     }
-//endregion Protected
 
-//region SECTION: Public
+
+
     public function createInfo(): InfoInterface
     {
         $this
@@ -496,9 +467,9 @@ class SysInfo implements InfoInterface
 
         return $this;
     }
-//endregion Public
 
-//region SECTION: Getters/Setters
+
+
     public function getInfo()
     {
         return $this->sysInfo;
@@ -508,5 +479,5 @@ class SysInfo implements InfoInterface
     {
         return 'sysinfo';
     }
-//endregion Getters/Setters
+
 }

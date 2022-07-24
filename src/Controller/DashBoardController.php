@@ -14,7 +14,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
  */
 class DashBoardController extends AbstractController
 {
-//region SECTION: Fields
+
     /**
      * @var EventDispatcherInterface
      */
@@ -24,17 +24,17 @@ class DashBoardController extends AbstractController
      * @var DashBoardManager
      */
     private $dashBoardManager;
-//endregion Fields
 
-//region SECTION: Constructor
+
+
     public function __construct(EventDispatcherInterface $eventDispatcher, DashBoardManager $dashBoardManager)
     {
         $this->eventDispatcher  = $eventDispatcher;
         $this->dashBoardManager = $dashBoardManager;
     }
-//endregion Constructor
 
-//region SECTION: Public
+
+
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -45,6 +45,6 @@ class DashBoardController extends AbstractController
 
         return $this->render('@EvrinomaDashBoard/dashboard.html.twig', $event->getInfo());
     }
-//endregion Public
+
 
 }

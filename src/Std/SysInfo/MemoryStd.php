@@ -9,7 +9,7 @@ class MemoryStd
 {
     use SizeTrait;
 
-//region SECTION: Fields
+
     private $memTotal  = 0;
     private $memFree   = 0;
     private $cached    = 0;
@@ -17,9 +17,9 @@ class MemoryStd
     private $swapFree  = 0;
     private $buffers   = 0;
     private $devSwap;
-//endregion Fields
 
-//region SECTION: Constructor
+
+
     /**
      * MemoryStd constructor.
      */
@@ -27,9 +27,9 @@ class MemoryStd
     {
         $this->devSwap = new ArrayCollection();
     }
-//endregion Constructor
 
-//region SECTION: Public
+
+
     /**
      * @param DiskStd $devSwap
      *
@@ -70,9 +70,9 @@ class MemoryStd
         return ($this->getMemTotal() !== $this->getMemFree()) ? $this->getMemFree() / $this->getMemTotal() : 0;
     }
 
-//endregion Public
 
-//region SECTION: Private
+
+
     /**
      * @return ArrayCollection
      */
@@ -120,9 +120,9 @@ class MemoryStd
     {
         return $this->swapFree / $this->getSize();
     }
-//endregion Private
 
-//region SECTION: Getters/Setters
+
+
     /**
      * @return mixed
      */
@@ -268,7 +268,7 @@ class MemoryStd
 
         return $this;
     }
-//endregion Getters/Setters
+
 
 
 }

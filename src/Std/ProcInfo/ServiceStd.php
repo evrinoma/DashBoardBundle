@@ -5,7 +5,7 @@ namespace Evrinoma\DashBoardBundle\Std\ProcInfo;
 
 class ServiceStd
 {
-//region SECTION: Fields
+
     private const STATUS_OK    = 'OK';
     private const STATUS_ERROR = 'ERROR';
     private const STATUS_NA    = 'NA';
@@ -13,16 +13,16 @@ class ServiceStd
     private $status;
     private $host;
     private $port;
-//endregion Fields
 
-//region SECTION: Public
+
+
     public function isAvailable()
     {
         return $this->status === self::STATUS_OK;
     }
-//endregion Public
 
-//region SECTION: Getters/Setters
+
+
     /**
      * @return mixed
      */
@@ -131,5 +131,5 @@ class ServiceStd
 
         return $this;
     }
-//endregion Getters/Setters
+
 }

@@ -5,13 +5,13 @@ namespace Evrinoma\DashBoardBundle\Std\SysInfo;
 
 class DevStd
 {
-//region SECTION: Fields
+
     private $description;
     private $product;
     private $serialNumber;
-//endregion Fields
 
-//region SECTION: Getters/Setters
+
+
     /**
      * @return mixed
      */
@@ -71,7 +71,7 @@ class DevStd
 
         return $this;
     }
-//endregion Getters/Setters
+
 
 
 }

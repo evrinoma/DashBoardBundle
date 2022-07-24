@@ -12,7 +12,7 @@ use Evrinoma\SecurityBundle\Voter\RoleInterface;
 final class DashBoardMenu implements ObjectInterface
 {
 
-//region SECTION: Public
+
     public function create(): DtoInterface
     {
         return (new MenuApiDto())
@@ -31,5 +31,5 @@ final class DashBoardMenu implements ObjectInterface
     {
         return ObjectInterface::DEFAULT_TAG;
     }
-//endregion Public
+
 }

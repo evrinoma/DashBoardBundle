@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
  */
 final class DashBoardApiController extends AbstractApiController
 {
-//region SECTION: Fields
+
     /**
      * @var Request
      */
@@ -27,9 +27,9 @@ final class DashBoardApiController extends AbstractApiController
      * @var DashBoardManager
      */
     private $dashBoardManager;
-//endregion Fields
 
-//region SECTION: Constructor
+
+
     /**
      * ApiController constructor.
      *
@@ -42,9 +42,9 @@ final class DashBoardApiController extends AbstractApiController
         $this->request            = $requestStack->getCurrentRequest();
         $this->dashBoardManager = $dashBoardManager;
     }
-//endregion Constructor
 
-//region SECTION: Public
+
+
 
     /**
      * @Rest\Get("/api/dashboard/status", options={"expose"=true}, name="api_dashboard_status")
@@ -59,5 +59,5 @@ final class DashBoardApiController extends AbstractApiController
     {
         return $this->json(['system' => $this->dashBoardManager->getDashBoard()]);
     }
-//endregion Public
+
 }

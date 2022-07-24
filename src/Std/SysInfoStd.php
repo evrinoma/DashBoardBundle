@@ -13,7 +13,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class SysInfoStd
 {
-//region SECTION: Fields
+
     public const UNKNOWN = 'unknown';
     private $vHostName = self::UNKNOWN;
     private $cHostName = self::UNKNOWN;
@@ -49,9 +49,9 @@ class SysInfoStd
      * @var CpuStd[]
      */
     private $cpu;
-//endregion Fields
 
-//region SECTION: Constructor
+
+
     /**
      * SysInfoStd constructor.
      */
@@ -66,9 +66,9 @@ class SysInfoStd
         $this->disk    = new ArrayCollection();
         $this->cpu     = new ArrayCollection();
     }
-//endregion Constructor
 
-//region SECTION: Public
+
+
     /**
      * @param CpuStd $cpu
      *
@@ -140,9 +140,9 @@ class SysInfoStd
 
         return $this;
     }
-//endregion Public
 
-//region SECTION: Getters/Setters
+
+
     /**
      * @return ArrayCollection
      */
@@ -366,7 +366,7 @@ class SysInfoStd
 
         return $this;
     }
-//endregion Getters/Setters
+
 
 
 }

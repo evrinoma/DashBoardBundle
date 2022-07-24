@@ -5,7 +5,7 @@ namespace Evrinoma\DashBoardBundle\Std\SysInfo;
 
 class LoadAvgStd
 {
-//region SECTION: Fields
+
     private $loadAve1  = 0;
     private $loadAve5  = 0;
     private $loadAve15 = 0;
@@ -19,9 +19,9 @@ class LoadAvgStd
     private $niceCpuLast   = 0;
     private $systemCpuLast = 0;
     private $idleCpuLast   = 0;
-//endregion Fields
 
-//region SECTION: Private
+
+
     /**
      * @return mixed
      */
@@ -101,9 +101,9 @@ class LoadAvgStd
     {
         return $this->idleCpuNext;
     }
-//endregion Private
 
-//region SECTION: Getters/Setters
+
+
     /**
      * @return mixed
      */
@@ -281,7 +281,7 @@ class LoadAvgStd
 
         return $this;
     }
-//endregion Getters/Setters
+
 
 
 }

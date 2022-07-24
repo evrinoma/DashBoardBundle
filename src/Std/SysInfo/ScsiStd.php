@@ -8,12 +8,12 @@ use Evrinoma\DashBoardBundle\Std\SysInfoStd;
 
 class ScsiStd
 {
-//region SECTION: Fields
+
     private $model = SysInfoStd::UNKNOWN;
     private $media = SysInfoStd::UNKNOWN;
-//endregion Fields
 
-//region SECTION: Getters/Setters
+
+
     /**
      * @return string
      */
@@ -53,6 +53,6 @@ class ScsiStd
 
         return $this;
     }
-//endregion Getters/Setters
+
 
 }

@@ -15,7 +15,7 @@ use Evrinoma\DashBoardBundle\Provider\ScanServiceInterface;
  */
 class ProcInfo implements InfoInterface
 {
-//region SECTION: Fields
+
     private $timeout = 5;
     private $ports   = [];
     /**
@@ -27,17 +27,17 @@ class ProcInfo implements InfoInterface
      * @var ProcInfoStd
      */
     private $procInfo;
-//endregion Fields
 
-//region SECTION: Constructor
+
+
     public function __construct(ProviderInterface $pluginManager = null)
     {
         $this->procInfo      = new ProcInfoStd();
         $this->pluginManager = $pluginManager;
     }
-//endregion Constructor
 
-//region SECTION: Public
+
+
     public function createInfo(): InfoInterface
     {
         $this
@@ -47,9 +47,9 @@ class ProcInfo implements InfoInterface
 
         return $this;
     }
-//endregion Public
 
-//region SECTION: Private
+
+
     /**
      * @return $this
      * @throws \Exception
@@ -158,9 +158,9 @@ class ProcInfo implements InfoInterface
 
         return false;
     }
-//endregion Private
 
-//region SECTION: Getters/Setters
+
+
     public function getInfo()
     {
         return $this->procInfo;
@@ -170,5 +170,5 @@ class ProcInfo implements InfoInterface
     {
         return 'procinfo';
     }
-//endregion Getters/Setters
+
 }

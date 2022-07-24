@@ -20,7 +20,7 @@ use Symfony\Component\DependencyInjection\Reference;
  */
 class EvrinomaDashBoardExtension extends Extension
 {
-//region SECTION: Public
+
     public function load(array $configs, ContainerBuilder $container)
     {
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
@@ -50,12 +50,12 @@ class EvrinomaDashBoardExtension extends Extension
             }
         }
     }
-//endregion Public
 
-//region SECTION: Getters/Setters
+
+
     public function getAlias()
     {
         return EvrinomaDashBoardBundle::BUNDLE;
     }
-//endregion Getters/Setters
+
 }

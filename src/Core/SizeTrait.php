@@ -13,11 +13,11 @@ use Evrinoma\DashBoardBundle\Model\SizeModel;
 trait SizeTrait
 {
 
-//region SECTION: Fields
-    private $size = SizeModel::SYZE_IN_BYTE;
-//endregion Fields
 
-//region SECTION: Public
+    private $size = SizeModel::SYZE_IN_BYTE;
+
+
+
     public function sizeInByte()
     {
         $this->size = SizeModel::SYZE_IN_BYTE;
@@ -53,9 +53,9 @@ trait SizeTrait
     {
         return $this->size;
     }
-//endregion Public
 
-//region SECTION: Getters/Setters
+
+
     public function getLetter()
     {
         $letter = 'Byte';
@@ -74,5 +74,5 @@ trait SizeTrait
 
         return $letter;
     }
-//endregion Getters/Setters
+
 }

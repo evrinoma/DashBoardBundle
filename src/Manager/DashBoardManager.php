@@ -13,14 +13,14 @@ use Evrinoma\DashBoardBundle\Info\InfoInterface;
 class DashBoardManager
 {
 
-//region SECTION: Fields
+
     /**
      * @var InfoInterface[]
      */
     private $infos = [];
-//endregion Fields
 
-//region SECTION: Constructor
+
+
     /**
      * DashBoard constructor.
      *
@@ -32,9 +32,9 @@ class DashBoardManager
             $this->addInfo($info);
         }
     }
-//endregion Constructor
 
-//region SECTION: Public
+
+
     /**
      * DashBoard constructor.
      *
@@ -44,9 +44,9 @@ class DashBoardManager
     {
         $this->infos[$info->getAlias()] = $info;
     }
-//endregion Public
 
-//region SECTION: Getters/Setters
+
+
     /**
      * @return array
      */
@@ -60,5 +60,5 @@ class DashBoardManager
 
         return $infos;
     }
-//endregion Getters/Setters
+
 }

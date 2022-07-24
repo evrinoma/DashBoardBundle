@@ -9,7 +9,7 @@ class DiskStd
 {
     use SizeTrait;
 
-//region SECTION: Fields
+
     private $name    = '';
     private $total   = 0;
     private $used    = 0;
@@ -18,9 +18,9 @@ class DiskStd
     private $fstype  = '';
     private $options = '';
     private $inodes  = '';
-//endregion Fields
 
-//region SECTION: Public
+
+
     /**
      * @return int
      */
@@ -29,9 +29,9 @@ class DiskStd
 
         return $this->getTotal() - $this->getUsed();
     }
-//endregion Public
 
-//region SECTION: Getters/Setters
+
+
     /**
      * @return mixed
      */
@@ -205,6 +205,6 @@ class DiskStd
 
         return $this;
     }
-//endregion Getters/Setters
+
 
 }

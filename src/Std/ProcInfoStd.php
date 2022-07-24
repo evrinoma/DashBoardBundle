@@ -8,14 +8,14 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class ProcInfoStd
 {
-//region SECTION: Fields
+
     /**
      * @var ServiceStd[]
      */
     private $service;
-//endregion Fields
 
-//region SECTION: Constructor
+
+
     /**
      * ProcInfoStd constructor.
      */
@@ -23,9 +23,9 @@ class ProcInfoStd
     {
         $this->service = new ArrayCollection();
     }
-//endregion Constructor
 
-//region SECTION: Public
+
+
     /**
      * @param $service
      *
@@ -37,9 +37,9 @@ class ProcInfoStd
 
         return $this;
     }
-//endregion Public
 
-//region SECTION: Getters/Setters
+
+
     /**
      * @return ArrayCollection
      */
@@ -47,5 +47,5 @@ class ProcInfoStd
     {
         return $this->service;
     }
-//endregion Getters/Setters
+
 }

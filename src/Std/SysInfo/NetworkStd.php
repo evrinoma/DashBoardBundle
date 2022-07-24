@@ -4,7 +4,7 @@ namespace Evrinoma\DashBoardBundle\Std\SysInfo;
 
 class NetworkStd
 {
-//region SECTION: Fields
+
     private $name;
     private $rxBytes;
     private $rxPackets;
@@ -14,9 +14,9 @@ class NetworkStd
     private $txPackets;
     private $txErrors;
     private $txDrop;
-//endregion Fields
 
-//region SECTION: Private
+
+
     /**
      * @return mixed
      */
@@ -80,9 +80,9 @@ class NetworkStd
     {
         return $this->getRxDrop() + $this->getTxDrop();
     }
-//endregion Private
 
-//region SECTION: Getters/Setters
+
+
     /**
      * @return mixed
      */
@@ -214,7 +214,7 @@ class NetworkStd
 
         return $this;
     }
-//endregion Getters/Setters
+
 
 
 }

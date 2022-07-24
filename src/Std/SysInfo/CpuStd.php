@@ -4,14 +4,14 @@ namespace Evrinoma\DashBoardBundle\Std\SysInfo;
 
 class CpuStd
 {
-//region SECTION: Fields
+
     private $model    = '';
     private $cpuSpeed = '';
     private $cache    = '';
     private $bogomips = 0;
-//endregion Fields
 
-//region SECTION: Public
+
+
     /**
      * @param mixed $cache
      *
@@ -35,9 +35,9 @@ class CpuStd
 
         return $this;
     }
-//endregion Public
 
-//region SECTION: Getters/Setters
+
+
     /**
      * @return mixed
      */
@@ -117,6 +117,6 @@ class CpuStd
 
         return $this;
     }
-//endregion Getters/Setters
+
 
 }
