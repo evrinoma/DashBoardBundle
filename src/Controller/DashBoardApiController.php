@@ -1,5 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of the package.
+ *
+ * (c) Nikolay Nikolaev <evrinoma@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Evrinoma\DashBoardBundle\Controller;
 
 use Evrinoma\DashBoardBundle\Manager\DashBoardManager;
@@ -11,13 +22,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
- * Class LiveVideoApiController
- *
- * @package Evrinoma\LiveVideoBundle\Controller
+ * Class LiveVideoApiController.
  */
 final class DashBoardApiController extends AbstractApiController
 {
-
     /**
      * @var Request
      */
@@ -28,28 +36,23 @@ final class DashBoardApiController extends AbstractApiController
      */
     private $dashBoardManager;
 
-
-
     /**
      * ApiController constructor.
      *
-     * @param SerializerInterface         $serializer
-     * @param RequestStack                $requestStack
+     * @param SerializerInterface $serializer
+     * @param RequestStack        $requestStack
      */
     public function __construct(SerializerInterface $serializer, RequestStack $requestStack, DashBoardManager $dashBoardManager)
     {
         parent::__construct($serializer);
-        $this->request            = $requestStack->getCurrentRequest();
+        $this->request = $requestStack->getCurrentRequest();
         $this->dashBoardManager = $dashBoardManager;
     }
 
-
-
-
     /**
-     * @Rest\Get("/api/dashboard/status", options={"expose"=true}, name="api_dashboard_status")
+     * @Rest\Get("/api/dashboard/status", options={"expose": true}, name="api_dashboard_status")
      * @OA\Get(tags={"system"})
-     * @OA\Response(response=200,description="Returns system status")
+     * @OA\Response(response=200, description="Returns system status")
      *
      * @param DashBoardManager $dashBoardManager
      *
@@ -59,5 +62,4 @@ final class DashBoardApiController extends AbstractApiController
     {
         return $this->json(['system' => $this->dashBoardManager->getDashBoard()]);
     }
-
 }

@@ -1,22 +1,26 @@
 <?php
 
-namespace Evrinoma\DashBoardBundle\Core;
+declare(strict_types=1);
 
+/*
+ * This file is part of the package.
+ *
+ * (c) Nikolay Nikolaev <evrinoma@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Evrinoma\DashBoardBundle\Core;
 
 use Evrinoma\DashBoardBundle\Model\SizeModel;
 
 /**
- * Trait SizeTrait
- *
- * @package Evrinoma\DashBoardBundle\Core
+ * Trait SizeTrait.
  */
 trait SizeTrait
 {
-
-
     private $size = SizeModel::SYZE_IN_BYTE;
-
-
 
     public function sizeInByte()
     {
@@ -54,25 +58,22 @@ trait SizeTrait
         return $this->size;
     }
 
-
-
     public function getLetter()
     {
         $letter = 'Byte';
 
         switch ($this->size) {
-            case SizeModel::SYZE_IN_GIGABYTE :
+            case SizeModel::SYZE_IN_GIGABYTE:
                 $letter = 'G'.$letter;
                 break;
-            case SizeModel::SYZE_IN_MEGABYTE :
+            case SizeModel::SYZE_IN_MEGABYTE:
                 $letter = 'M'.$letter;
                 break;
-            case SizeModel::SYZE_IN_KILOBYTE :
+            case SizeModel::SYZE_IN_KILOBYTE:
                 $letter = 'k'.$letter;
                 break;
         }
 
         return $letter;
     }
-
 }

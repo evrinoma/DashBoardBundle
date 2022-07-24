@@ -1,36 +1,43 @@
 <?php
 
-namespace Evrinoma\DashBoardBundle\Std\SysInfo;
+declare(strict_types=1);
 
+/*
+ * This file is part of the package.
+ *
+ * (c) Nikolay Nikolaev <evrinoma@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Evrinoma\DashBoardBundle\Std\SysInfo;
 
 class LoadAvgStd
 {
-
-    private $loadAve1  = 0;
-    private $loadAve5  = 0;
+    private $loadAve1 = 0;
+    private $loadAve5 = 0;
     private $loadAve15 = 0;
 
-    private $userCpuNext   = 0;
-    private $niceCpuNext   = 0;
+    private $userCpuNext = 0;
+    private $niceCpuNext = 0;
     private $systemCpuNext = 0;
-    private $idleCpuNext   = 0;
+    private $idleCpuNext = 0;
 
-    private $userCpuLast   = 0;
-    private $niceCpuLast   = 0;
+    private $userCpuLast = 0;
+    private $niceCpuLast = 0;
     private $systemCpuLast = 0;
-    private $idleCpuLast   = 0;
-
-
+    private $idleCpuLast = 0;
 
     /**
      * @return mixed
      */
     private function calcLoadCpu()
     {
-        $loadLast  = $this->getUserCpuLast() + $this->getNiceCpuLast() + $this->getSystemCpuLast();
+        $loadLast = $this->getUserCpuLast() + $this->getNiceCpuLast() + $this->getSystemCpuLast();
         $totalLast = $loadLast + $this->getIdleCpuLast();
 
-        $loadNext  = $this->getUserCpuNext() + $this->getNiceCpuNext() + $this->getSystemCpuNext();
+        $loadNext = $this->getUserCpuNext() + $this->getNiceCpuNext() + $this->getSystemCpuNext();
         $totalNext = $loadNext + $this->getIdleCpuNext();
 
         $loadCpu = ($totalNext !== $totalLast) ? ($loadNext - $loadLast) / ($totalNext - $totalLast) : 0;
@@ -102,8 +109,6 @@ class LoadAvgStd
         return $this->idleCpuNext;
     }
 
-
-
     /**
      * @return mixed
      */
@@ -155,7 +160,7 @@ class LoadAvgStd
      *
      * @return LoadAvgStd
      */
-    public function setUserCpuLast(int $userCpuLast):self
+    public function setUserCpuLast(int $userCpuLast): self
     {
         $this->userCpuLast = $userCpuLast;
 
@@ -167,7 +172,7 @@ class LoadAvgStd
      *
      * @return LoadAvgStd
      */
-    public function setNiceCpuLast(int $niceCpuLast):self
+    public function setNiceCpuLast(int $niceCpuLast): self
     {
         $this->niceCpuLast = $niceCpuLast;
 
@@ -179,7 +184,7 @@ class LoadAvgStd
      *
      * @return LoadAvgStd
      */
-    public function setSystemCpuLast(int $systemCpuLast):self
+    public function setSystemCpuLast(int $systemCpuLast): self
     {
         $this->systemCpuLast = $systemCpuLast;
 
@@ -191,7 +196,7 @@ class LoadAvgStd
      *
      * @return LoadAvgStd
      */
-    public function setIdleCpuLast(int $idleCpuLast):self
+    public function setIdleCpuLast(int $idleCpuLast): self
     {
         $this->idleCpuLast = $idleCpuLast;
 
@@ -203,7 +208,7 @@ class LoadAvgStd
      *
      * @return LoadAvgStd
      */
-    public function setUserCpuNext(int $userCpuNext):self
+    public function setUserCpuNext(int $userCpuNext): self
     {
         $this->userCpuNext = $userCpuNext;
 
@@ -215,7 +220,7 @@ class LoadAvgStd
      *
      * @return LoadAvgStd
      */
-    public function setNiceCpuNext(int $niceCpuNext):self
+    public function setNiceCpuNext(int $niceCpuNext): self
     {
         $this->niceCpuNext = $niceCpuNext;
 
@@ -227,7 +232,7 @@ class LoadAvgStd
      *
      * @return LoadAvgStd
      */
-    public function setSystemCpuNext(int $systemCpuNext):self
+    public function setSystemCpuNext(int $systemCpuNext): self
     {
         $this->systemCpuNext = $systemCpuNext;
 
@@ -239,7 +244,7 @@ class LoadAvgStd
      *
      * @return LoadAvgStd
      */
-    public function setIdleCpuNext(int $idleCpuNext):self
+    public function setIdleCpuNext(int $idleCpuNext): self
     {
         $this->idleCpuNext = $idleCpuNext;
 
@@ -251,7 +256,7 @@ class LoadAvgStd
      *
      * @return LoadAvgStd
      */
-    public function setLoadAve1($loadAve1):self
+    public function setLoadAve1($loadAve1): self
     {
         $this->loadAve1 = $loadAve1;
 
@@ -263,7 +268,7 @@ class LoadAvgStd
      *
      * @return LoadAvgStd
      */
-    public function setLoadAve5($loadAve5):self
+    public function setLoadAve5($loadAve5): self
     {
         $this->loadAve5 = $loadAve5;
 
@@ -275,13 +280,10 @@ class LoadAvgStd
      *
      * @return LoadAvgStd
      */
-    public function setLoadAve15($loadAve15):self
+    public function setLoadAve15($loadAve15): self
     {
         $this->loadAve15 = $loadAve15;
 
         return $this;
     }
-
-
-
 }

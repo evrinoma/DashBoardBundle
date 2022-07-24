@@ -1,7 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of the package.
+ *
+ * (c) Nikolay Nikolaev <evrinoma@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Evrinoma\DashBoardBundle\Std;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Evrinoma\DashBoardBundle\Std\SysInfo\CpuStd;
 use Evrinoma\DashBoardBundle\Std\SysInfo\DevStd;
 use Evrinoma\DashBoardBundle\Std\SysInfo\DiskStd;
@@ -9,20 +21,18 @@ use Evrinoma\DashBoardBundle\Std\SysInfo\LoadAvgStd;
 use Evrinoma\DashBoardBundle\Std\SysInfo\MemoryStd;
 use Evrinoma\DashBoardBundle\Std\SysInfo\NetworkStd;
 use Evrinoma\DashBoardBundle\Std\SysInfo\ScsiStd;
-use Doctrine\Common\Collections\ArrayCollection;
 
 class SysInfoStd
 {
-
     public const UNKNOWN = 'unknown';
     private $vHostName = self::UNKNOWN;
     private $cHostName = self::UNKNOWN;
     private $ipAddress = self::UNKNOWN;
     private $distrName = self::UNKNOWN;
-    private $distr     = self::UNKNOWN;
-    private $kernel    = self::UNKNOWN;
-    private $upTime    = self::UNKNOWN;
-    private $users     = self::UNKNOWN;
+    private $distr = self::UNKNOWN;
+    private $kernel = self::UNKNOWN;
+    private $upTime = self::UNKNOWN;
+    private $users = self::UNKNOWN;
     private $loadAvg;
     /**
      * @var ScsiStd[]
@@ -50,24 +60,20 @@ class SysInfoStd
      */
     private $cpu;
 
-
-
     /**
      * SysInfoStd constructor.
      */
     public function __construct()
     {
         $this->loadAvg = new LoadAvgStd();
-        $this->scsi    = new ArrayCollection();
-        $this->usb     = new ArrayCollection();
-        $this->pci     = new ArrayCollection();
+        $this->scsi = new ArrayCollection();
+        $this->usb = new ArrayCollection();
+        $this->pci = new ArrayCollection();
         $this->network = new ArrayCollection();
-        $this->memory  = new MemoryStd();
-        $this->disk    = new ArrayCollection();
-        $this->cpu     = new ArrayCollection();
+        $this->memory = new MemoryStd();
+        $this->disk = new ArrayCollection();
+        $this->cpu = new ArrayCollection();
     }
-
-
 
     /**
      * @param CpuStd $cpu
@@ -140,8 +146,6 @@ class SysInfoStd
 
         return $this;
     }
-
-
 
     /**
      * @return ArrayCollection
@@ -366,7 +370,4 @@ class SysInfoStd
 
         return $this;
     }
-
-
-
 }

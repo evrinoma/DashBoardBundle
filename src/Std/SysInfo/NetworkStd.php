@@ -1,10 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of the package.
+ *
+ * (c) Nikolay Nikolaev <evrinoma@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Evrinoma\DashBoardBundle\Std\SysInfo;
 
 class NetworkStd
 {
-
     private $name;
     private $rxBytes;
     private $rxPackets;
@@ -14,8 +24,6 @@ class NetworkStd
     private $txPackets;
     private $txErrors;
     private $txDrop;
-
-
 
     /**
      * @return mixed
@@ -81,8 +89,6 @@ class NetworkStd
         return $this->getRxDrop() + $this->getTxDrop();
     }
 
-
-
     /**
      * @return mixed
      */
@@ -112,7 +118,7 @@ class NetworkStd
      *
      * @return NetworkStd
      */
-    public function setName($name):self
+    public function setName($name): self
     {
         $this->name = $name;
 
@@ -124,7 +130,7 @@ class NetworkStd
      *
      * @return NetworkStd
      */
-    public function setRxBytes($rxBytes):self
+    public function setRxBytes($rxBytes): self
     {
         $this->rxBytes = $rxBytes;
 
@@ -136,7 +142,7 @@ class NetworkStd
      *
      * @return NetworkStd
      */
-    public function setRxPackets($rxPackets):self
+    public function setRxPackets($rxPackets): self
     {
         $this->rxPackets = $rxPackets;
 
@@ -148,7 +154,7 @@ class NetworkStd
      *
      * @return NetworkStd
      */
-    public function setRxErrors($rxErrors):self
+    public function setRxErrors($rxErrors): self
     {
         $this->rxErrors = $rxErrors;
 
@@ -160,7 +166,7 @@ class NetworkStd
      *
      * @return NetworkStd
      */
-    public function setRxDrop($rxDrop):self
+    public function setRxDrop($rxDrop): self
     {
         $this->rxDrop = $rxDrop;
 
@@ -172,7 +178,7 @@ class NetworkStd
      *
      * @return NetworkStd
      */
-    public function setTxBytes($txBytes):self
+    public function setTxBytes($txBytes): self
     {
         $this->txBytes = $txBytes;
 
@@ -184,7 +190,7 @@ class NetworkStd
      *
      * @return NetworkStd
      */
-    public function setTxPackets($txPackets):self
+    public function setTxPackets($txPackets): self
     {
         $this->txPackets = $txPackets;
 
@@ -196,7 +202,7 @@ class NetworkStd
      *
      * @return NetworkStd
      */
-    public function setTxErrors($txErrors):self
+    public function setTxErrors($txErrors): self
     {
         $this->txErrors = $txErrors;
 
@@ -208,13 +214,10 @@ class NetworkStd
      *
      * @return NetworkStd
      */
-    public function setTxDrop($txDrop):self
+    public function setTxDrop($txDrop): self
     {
         $this->txDrop = $txDrop;
 
         return $this;
     }
-
-
-
 }

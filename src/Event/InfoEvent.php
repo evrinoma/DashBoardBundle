@@ -1,18 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of the package.
+ *
+ * (c) Nikolay Nikolaev <evrinoma@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Evrinoma\DashBoardBundle\Event;
 
 use Symfony\Contracts\EventDispatcher\Event;
 
 class InfoEvent extends Event
 {
-
     /**
      * @var array
      */
     protected $info;
-
-
 
     /**
      * UserEvent constructor.
@@ -22,8 +30,6 @@ class InfoEvent extends Event
         $this->info = $info;
     }
 
-
-
     /**
      * @param array $additional
      */
@@ -32,8 +38,6 @@ class InfoEvent extends Event
         $this->info += $additional;
     }
 
-
-
     /**
      * @return array
      */
@@ -41,5 +45,4 @@ class InfoEvent extends Event
     {
         return $this->info;
     }
-
 }

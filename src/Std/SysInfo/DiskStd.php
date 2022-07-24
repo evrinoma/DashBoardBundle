@@ -1,7 +1,17 @@
 <?php
 
-namespace Evrinoma\DashBoardBundle\Std\SysInfo;
+declare(strict_types=1);
 
+/*
+ * This file is part of the package.
+ *
+ * (c) Nikolay Nikolaev <evrinoma@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Evrinoma\DashBoardBundle\Std\SysInfo;
 
 use Evrinoma\DashBoardBundle\Core\SizeTrait;
 
@@ -9,28 +19,22 @@ class DiskStd
 {
     use SizeTrait;
 
-
-    private $name    = '';
-    private $total   = 0;
-    private $used    = 0;
-    private $free    = 0;
-    private $mount   = '';
-    private $fstype  = '';
+    private $name = '';
+    private $total = 0;
+    private $used = 0;
+    private $free = 0;
+    private $mount = '';
+    private $fstype = '';
     private $options = '';
-    private $inodes  = '';
-
-
+    private $inodes = '';
 
     /**
      * @return int
      */
     private function calcFree()
     {
-
         return $this->getTotal() - $this->getUsed();
     }
-
-
 
     /**
      * @return mixed
@@ -74,7 +78,6 @@ class DiskStd
 
     private function calc()
     {
-
         return $this->getTotal() ? $this->getUsed() / $this->getTotal() : 0;
     }
 
@@ -115,7 +118,7 @@ class DiskStd
      *
      * @return DiskStd
      */
-    public function setInodes($inodes):self
+    public function setInodes($inodes): self
     {
         $this->inodes = $inodes;
 
@@ -127,7 +130,7 @@ class DiskStd
      *
      * @return DiskStd
      */
-    public function setOptions($options):self
+    public function setOptions($options): self
     {
         $this->options = $options;
 
@@ -139,7 +142,7 @@ class DiskStd
      *
      * @return DiskStd
      */
-    public function setFstype($fstype):self
+    public function setFstype($fstype): self
     {
         $this->fstype = $fstype;
 
@@ -151,7 +154,7 @@ class DiskStd
      *
      * @return DiskStd
      */
-    public function setMount($mount):self
+    public function setMount($mount): self
     {
         $this->mount = $mount;
 
@@ -163,7 +166,7 @@ class DiskStd
      *
      * @return DiskStd
      */
-    public function setFree($free):self
+    public function setFree($free): self
     {
         $this->free = $free;
 
@@ -175,7 +178,7 @@ class DiskStd
      *
      * @return $this
      */
-    public function setUsed($used):self
+    public function setUsed($used): self
     {
         $this->used = $used;
 
@@ -187,7 +190,7 @@ class DiskStd
      *
      * @return $this
      */
-    public function setName($name):self
+    public function setName($name): self
     {
         $this->name = $name;
 
@@ -199,12 +202,10 @@ class DiskStd
      *
      * @return DiskStd
      */
-    public function setTotal($devSwapTotal):self
+    public function setTotal($devSwapTotal): self
     {
         $this->total = $devSwapTotal;
 
         return $this;
     }
-
-
 }

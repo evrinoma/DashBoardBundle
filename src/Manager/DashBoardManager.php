@@ -1,25 +1,29 @@
 <?php
 
-namespace Evrinoma\DashBoardBundle\Manager;
+declare(strict_types=1);
 
+/*
+ * This file is part of the package.
+ *
+ * (c) Nikolay Nikolaev <evrinoma@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Evrinoma\DashBoardBundle\Manager;
 
 use Evrinoma\DashBoardBundle\Info\InfoInterface;
 
 /**
- * Class DashBoardManager
- *
- * @package Evrinoma\DashBoardBundle\Manager
+ * Class DashBoardManager.
  */
 class DashBoardManager
 {
-
-
     /**
      * @var InfoInterface[]
      */
     private $infos = [];
-
-
 
     /**
      * DashBoard constructor.
@@ -33,32 +37,27 @@ class DashBoardManager
         }
     }
 
-
-
     /**
      * DashBoard constructor.
      *
      * @param InfoInterface $info
      */
-    public function addInfo(InfoInterface $info):void
+    public function addInfo(InfoInterface $info): void
     {
         $this->infos[$info->getAlias()] = $info;
     }
 
-
-
     /**
      * @return array
      */
-    public function getDashBoard():array
+    public function getDashBoard(): array
     {
         $infos = [];
 
         foreach ($this->infos as $info) {
-            $infos [$info->getAlias() ]= $info->createInfo()->getInfo();
+            $infos[$info->getAlias()] = $info->createInfo()->getInfo();
         }
 
         return $infos;
     }
-
 }

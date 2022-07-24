@@ -1,16 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of the package.
+ *
+ * (c) Nikolay Nikolaev <evrinoma@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Evrinoma\DashBoardBundle\Std\SysInfo;
 
 class CpuStd
 {
-
-    private $model    = '';
+    private $model = '';
     private $cpuSpeed = '';
-    private $cache    = '';
+    private $cache = '';
     private $bogomips = 0;
-
-
 
     /**
      * @param mixed $cache
@@ -36,8 +44,6 @@ class CpuStd
         return $this;
     }
 
-
-
     /**
      * @return mixed
      */
@@ -59,7 +65,7 @@ class CpuStd
      */
     public function getCache()
     {
-        return $this->cache . 'B';
+        return $this->cache.'B';
     }
 
     /**
@@ -75,7 +81,7 @@ class CpuStd
      *
      * @return CpuStd
      */
-    public function setModel($model):self
+    public function setModel($model): self
     {
         $this->model = $model;
 
@@ -87,7 +93,7 @@ class CpuStd
      *
      * @return CpuStd
      */
-    public function setCpuSpeed($cpuSpeed):self
+    public function setCpuSpeed($cpuSpeed): self
     {
         $this->cpuSpeed = $cpuSpeed;
 
@@ -99,7 +105,7 @@ class CpuStd
      *
      * @return CpuStd
      */
-    public function setCache($cache):self
+    public function setCache($cache): self
     {
         $this->cache = $cache;
 
@@ -111,12 +117,10 @@ class CpuStd
      *
      * @return CpuStd
      */
-    public function setBogomips($bogomips):self
+    public function setBogomips($bogomips): self
     {
         $this->bogomips = $bogomips;
 
         return $this;
     }
-
-
 }

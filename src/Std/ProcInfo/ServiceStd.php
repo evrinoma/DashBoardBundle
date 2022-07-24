@@ -1,27 +1,32 @@
 <?php
 
-namespace Evrinoma\DashBoardBundle\Std\ProcInfo;
+declare(strict_types=1);
 
+/*
+ * This file is part of the package.
+ *
+ * (c) Nikolay Nikolaev <evrinoma@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Evrinoma\DashBoardBundle\Std\ProcInfo;
 
 class ServiceStd
 {
-
-    private const STATUS_OK    = 'OK';
+    private const STATUS_OK = 'OK';
     private const STATUS_ERROR = 'ERROR';
-    private const STATUS_NA    = 'NA';
+    private const STATUS_NA = 'NA';
     private $name;
     private $status;
     private $host;
     private $port;
 
-
-
     public function isAvailable()
     {
-        return $this->status === self::STATUS_OK;
+        return self::STATUS_OK === $this->status;
     }
-
-
 
     /**
      * @return mixed
@@ -131,5 +136,4 @@ class ServiceStd
 
         return $this;
     }
-
 }

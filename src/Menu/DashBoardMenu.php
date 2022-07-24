@@ -1,5 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of the package.
+ *
+ * (c) Nikolay Nikolaev <evrinoma@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace Evrinoma\DashBoardBundle\Menu;
 
@@ -11,8 +21,6 @@ use Evrinoma\SecurityBundle\Voter\RoleInterface;
 
 final class DashBoardMenu implements ObjectInterface
 {
-
-
     public function create(): DtoInterface
     {
         return (new MenuApiDto())
@@ -31,5 +39,4 @@ final class DashBoardMenu implements ObjectInterface
     {
         return ObjectInterface::DEFAULT_TAG;
     }
-
 }

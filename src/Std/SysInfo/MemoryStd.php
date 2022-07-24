@@ -1,24 +1,32 @@
 <?php
 
+declare(strict_types=1);
+
+/*
+ * This file is part of the package.
+ *
+ * (c) Nikolay Nikolaev <evrinoma@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Evrinoma\DashBoardBundle\Std\SysInfo;
 
-use Evrinoma\DashBoardBundle\Core\SizeTrait;
 use Doctrine\Common\Collections\ArrayCollection;
+use Evrinoma\DashBoardBundle\Core\SizeTrait;
 
 class MemoryStd
 {
     use SizeTrait;
 
-
-    private $memTotal  = 0;
-    private $memFree   = 0;
-    private $cached    = 0;
+    private $memTotal = 0;
+    private $memFree = 0;
+    private $cached = 0;
     private $swapTotal = 0;
-    private $swapFree  = 0;
-    private $buffers   = 0;
+    private $swapFree = 0;
+    private $buffers = 0;
     private $devSwap;
-
-
 
     /**
      * MemoryStd constructor.
@@ -28,14 +36,12 @@ class MemoryStd
         $this->devSwap = new ArrayCollection();
     }
 
-
-
     /**
      * @param DiskStd $devSwap
      *
      * @return MemoryStd
      */
-    public function addDevSwap(DiskStd $devSwap):self
+    public function addDevSwap(DiskStd $devSwap): self
     {
         $this->devSwap->add($devSwap);
 
@@ -69,9 +75,6 @@ class MemoryStd
     {
         return ($this->getMemTotal() !== $this->getMemFree()) ? $this->getMemFree() / $this->getMemTotal() : 0;
     }
-
-
-
 
     /**
      * @return ArrayCollection
@@ -121,8 +124,6 @@ class MemoryStd
         return $this->swapFree / $this->getSize();
     }
 
-
-
     /**
      * @return mixed
      */
@@ -138,8 +139,6 @@ class MemoryStd
     {
         return $this->swapTotal / $this->getSize();
     }
-
-
 
     /**
      * @return mixed
@@ -202,7 +201,7 @@ class MemoryStd
      *
      * @return MemoryStd
      */
-    public function setBuffers(int $buffers):self
+    public function setBuffers(int $buffers): self
     {
         $this->buffers = $buffers;
 
@@ -214,7 +213,7 @@ class MemoryStd
      *
      * @return MemoryStd
      */
-    public function setMemTotal(int $memTotal):self
+    public function setMemTotal(int $memTotal): self
     {
         $this->memTotal = $memTotal;
 
@@ -226,7 +225,7 @@ class MemoryStd
      *
      * @return MemoryStd
      */
-    public function setMemFree(int $memFree):self
+    public function setMemFree(int $memFree): self
     {
         $this->memFree = $memFree;
 
@@ -238,7 +237,7 @@ class MemoryStd
      *
      * @return MemoryStd
      */
-    public function setCached(int $cached):self
+    public function setCached(int $cached): self
     {
         $this->cached = $cached;
 
@@ -250,7 +249,7 @@ class MemoryStd
      *
      * @return MemoryStd
      */
-    public function setSwapTotal(int $swapTotal):self
+    public function setSwapTotal(int $swapTotal): self
     {
         $this->swapTotal = $swapTotal;
 
@@ -262,13 +261,10 @@ class MemoryStd
      *
      * @return MemoryStd
      */
-    public function setSwapFree(int $swapFree):self
+    public function setSwapFree(int $swapFree): self
     {
         $this->swapFree = $swapFree;
 
         return $this;
     }
-
-
-
 }
