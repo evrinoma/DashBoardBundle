@@ -27,14 +27,14 @@ use Symfony\Component\HttpFoundation\RequestStack;
 final class DashBoardApiController extends AbstractApiController
 {
     /**
-     * @var Request
+     * @var ?Request
      */
-    private $request;
+    private ?Request $request;
 
     /**
      * @var DashBoardManager
      */
-    private $dashBoardManager;
+    private DashBoardManager $dashBoardManager;
 
     /**
      * ApiController constructor.

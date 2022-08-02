@@ -26,12 +26,12 @@ class DashBoardController extends AbstractController
     /**
      * @var EventDispatcherInterface
      */
-    private $eventDispatcher;
+    private EventDispatcherInterface $eventDispatcher;
 
     /**
      * @var DashBoardManager
      */
-    private $dashBoardManager;
+    private DashBoardManager $dashBoardManager;
 
     public function __construct(EventDispatcherInterface $eventDispatcher, DashBoardManager $dashBoardManager)
     {

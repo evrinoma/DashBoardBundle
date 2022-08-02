@@ -23,7 +23,7 @@ class DashBoardManager
     /**
      * @var InfoInterface[]
      */
-    private $infos = [];
+    private array $infos = [];
 
     /**
      * DashBoard constructor.
