@@ -27,7 +27,7 @@ use Evrinoma\ShellBundle\Core\ShellInterface;
 class SysInfo implements InfoInterface
 {
     private const NOT_AVAILABLE = 'N.A.';
-    private const ERROR = 'ERROR';
+    private const ERROR         = 'ERROR';
 
     /**
      * @var SysInfoStd
@@ -46,7 +46,7 @@ class SysInfo implements InfoInterface
      */
     public function __construct(ShellInterface $shellManager)
     {
-        $this->sysInfo = new SysInfoStd();
+        $this->sysInfo      = new SysInfoStd();
         $this->shellManager = $shellManager;
     }
 
@@ -60,8 +60,17 @@ class SysInfo implements InfoInterface
 
     protected function getIpAddress(): SysInfo
     {
-        $varName = getenv('SERVER_ADDR');
-        if ('' !== $varName) {
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            $varName = $_SERVER['HTTP_CLIENT_IP'];
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $varName = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } elseif (!empty($_SERVER['REMOTE_ADDR'])) {
+            $varName = $_SERVER['REMOTE_ADDR'];
+        } else {
+            $varName = getenv('SERVER_ADDR');;
+        }
+
+        if ('' !== $varName && false !== $varName) {
             $this->sysInfo->setIpAddress($varName);
         }
 
@@ -70,8 +79,13 @@ class SysInfo implements InfoInterface
 
     protected function getVHostName(): SysInfo
     {
-        $varName = getenv('SERVER_NAME');
-        if ('' !== $varName) {
+        if (SysInfoStd::UNKNOWN !== $this->sysInfo->getIpAddress()) {
+            $varName = gethostbyaddr($this->sysInfo->getIpAddress());
+        } else {
+            $varName = getenv('SERVER_NAME');;
+        }
+
+        if ('' !== $varName && false !== $varName) {
             $this->sysInfo->setVHostName($varName);
         }
 
@@ -265,9 +279,9 @@ class SysInfo implements InfoInterface
             }
         } elseif ($this->shellManager->rfts('/proc/bus/usb/devices')) {
             $values = $this->shellManager->toArrayString();
-            $keys = preg_grep('/^\s*$/', explode("\n", $values));
-            $i = 0;
-            $stop = true;
+            $keys   = preg_grep('/^\s*$/', explode("\n", $values));
+            $i      = 0;
+            $stop   = true;
             do {
                 $j = $i + 1;
                 if (\array_key_exists($i, $keys)) {
@@ -276,7 +290,7 @@ class SysInfo implements InfoInterface
                 if (\array_key_exists($j, $keys)) {
                     $j = $keys[$j];
                 } else {
-                    $j = \count($values);
+                    $j    = \count($values);
                     $stop = false;
                 }
                 $usb = new DevStd();
@@ -306,7 +320,7 @@ class SysInfo implements InfoInterface
         if ($this->shellManager->rfts('/proc/net/dev')) {
             foreach (preg_grep('/:/', $this->shellManager->toArrayString()) as $buf) {
                 [$dev_name, $stats_list] = explode(':', $buf, 2);
-                $stats = preg_split('/\s+/', trim($stats_list));
+                $stats   = preg_split('/\s+/', trim($stats_list));
                 $network = new NetworkStd();
                 $network->setName($dev_name)
                     ->setRxBytes($stats[0])
@@ -329,27 +343,27 @@ class SysInfo implements InfoInterface
         if ($this->shellManager->rfts('/proc/meminfo')) {
             foreach ($this->shellManager->toArrayString() as $buf) {
                 if (preg_match('/^MemTotal:\s+(.*)\s*kB/i', $buf, $ar_buf)) {
-                    $this->sysInfo->getMemory()->setMemTotal((int) $ar_buf[1] * 1000);
+                    $this->sysInfo->getMemory()->setMemTotal((int)$ar_buf[1] * 1000);
                     continue;
                 }
                 if (preg_match('/^MemFree:\s+(.*)\s*kB/i', $buf, $ar_buf)) {
-                    $this->sysInfo->getMemory()->setMemFree((int) $ar_buf[1] * 1000);
+                    $this->sysInfo->getMemory()->setMemFree((int)$ar_buf[1] * 1000);
                     continue;
                 }
                 if (preg_match('/^Cached:\s+(.*)\s*kB/i', $buf, $ar_buf)) {
-                    $this->sysInfo->getMemory()->setCached((int) $ar_buf[1] * 1000);
+                    $this->sysInfo->getMemory()->setCached((int)$ar_buf[1] * 1000);
                     continue;
                 }
                 if (preg_match('/^Buffers:\s+(.*)\s*kB/i', $buf, $ar_buf)) {
-                    $this->sysInfo->getMemory()->setBuffers((int) $ar_buf[1] * 1000);
+                    $this->sysInfo->getMemory()->setBuffers((int)$ar_buf[1] * 1000);
                     continue;
                 }
                 if (preg_match('/^SwapTotal:\s+(.*)\s*kB/i', $buf, $ar_buf)) {
-                    $this->sysInfo->getMemory()->setSwapTotal((int) $ar_buf[1] * 1000);
+                    $this->sysInfo->getMemory()->setSwapTotal((int)$ar_buf[1] * 1000);
                     continue;
                 }
                 if (preg_match('/^SwapFree:\s+(.*)\s*kB/i', $buf, $ar_buf)) {
-                    $this->sysInfo->getMemory()->setSwapFree((int) $ar_buf[1] * 1000);
+                    $this->sysInfo->getMemory()->setSwapFree((int)$ar_buf[1] * 1000);
                     continue;
                 }
             }
@@ -357,11 +371,11 @@ class SysInfo implements InfoInterface
             if ($this->shellManager->rfts('/proc/swaps')) {
                 foreach ($this->shellManager->toArrayString() as $item) {
                     if ('' !== $item & (!str_contains($item, 'Filename'))) {
-                        $arBuf = preg_split('/\s+/', $item, 6);
+                        $arBuf   = preg_split('/\s+/', $item, 6);
                         $devSwap = new DiskStd();
                         $devSwap->setName($arBuf[0])
-                            ->setTotal((int) $arBuf[2])
-                            ->setUsed((int) $arBuf[3]);
+                            ->setTotal((int)$arBuf[2])
+                            ->setUsed((int)$arBuf[3]);
                         $this->sysInfo->getMemory()->addDevSwap($devSwap);
                     }
                 }
