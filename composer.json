@@ -14,7 +14,7 @@
     ],
     "require": {
         "php": "^7.4 || ^8.0",
-        "evrinoma/shell-bundle": "dev-master"
+        "evrinoma/system-bundle": "dev-master"
     },
     "autoload": {
         "psr-4": {
@@ -30,11 +30,11 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/evrinoma/ShellBundle.git"
+            "url": "https://github.com/evrinoma/SystemBundle.git"
         }
     ],
     "require-dev": {
         "symfony/phpunit-bridge": "^5.0",
-        "friendsofphp/php-cs-fixer": "^3.4"
+        "friendsofphp/php-cs-fixer": "^3.12"
     }
 }

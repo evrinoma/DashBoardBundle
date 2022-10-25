@@ -22,7 +22,7 @@ services:
 
   evrinoma.dash_board.info.sys_info:
     class: Evrinoma\DashBoardBundle\Info\SysInfo
-    arguments: [ '@evrinoma.shell']
+    arguments: [ '@evrinoma.system.shell']
 
   Evrinoma\DashBoardBundle\Controller\DashBoardController:
     alias: evrinoma.dash_board.controller

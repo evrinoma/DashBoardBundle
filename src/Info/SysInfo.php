@@ -19,7 +19,7 @@ use Evrinoma\DashBoardBundle\Std\SysInfo\DiskStd;
 use Evrinoma\DashBoardBundle\Std\SysInfo\NetworkStd;
 use Evrinoma\DashBoardBundle\Std\SysInfo\ScsiStd;
 use Evrinoma\DashBoardBundle\Std\SysInfoStd;
-use Evrinoma\ShellBundle\Core\ShellInterface;
+use Evrinoma\SystemBundle\Shell\ShellInterface;
 
 /**
  * Class SysInfo.
@@ -29,15 +29,9 @@ class SysInfo implements InfoInterface
     private const NOT_AVAILABLE = 'N.A.';
     private const ERROR = 'ERROR';
 
-    /**
-     * @var SysInfoStd
-     */
-    private $sysInfo;
+    private SysInfoStd $sysInfo;
 
-    /**
-     * @var ShellInterface
-     */
-    private $shellManager;
+    private ShellInterface $shellManager;
 
     /**
      * SysInfo constructor.
