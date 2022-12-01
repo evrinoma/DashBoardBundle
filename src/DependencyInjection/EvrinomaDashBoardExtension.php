@@ -51,7 +51,7 @@ class EvrinomaDashBoardExtension extends Extension
                         $container->removeDefinition(DashBoardMenu::class);
                         break;
                     default:
-                    }
+                }
             }
         }
     }
