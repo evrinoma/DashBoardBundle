@@ -20,5 +20,5 @@ interface ProviderInterface
     /**
      * return Iterator|ServiceInterface[].
      */
-    public function getService(): Iterator;
+    public function getService(): \Iterator;
 }
