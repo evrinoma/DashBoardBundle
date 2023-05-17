@@ -288,7 +288,7 @@ class SysInfo implements InfoInterface
                     $stop = false;
                 }
                 $usb = new DevStd();
-                for (; $i < $j; ++$i) {
+                for (; $i < $j; $i++) {
                     [$key, $value] = explode('=', $values[$i], 2);
                     switch ($key) {
                         case 'Manufacturer':
@@ -422,7 +422,7 @@ class SysInfo implements InfoInterface
             $current = 0;
 
             foreach ($mount as $mount_line) {
-                ++$current;
+                $current++;
                 if (preg_match('#'.$df_buf[0].' on '.$df_buf[5]." type (.*) \((.*)\)#", $mount_line, $mount_buf)) {
                     $mount_buf[1] .= ','.$mount_buf[2];
                 } elseif (!preg_match('#'.$df_buf[0].'(.*) on '.$df_buf[5]." \((.*)\)#", $mount_line, $mount_buf)) {
@@ -444,7 +444,7 @@ class SysInfo implements InfoInterface
                         $disk->setInodes($inode_buf[\count($inode_buf) - 1][1]);
                     }
                     $this->sysInfo->addDisk($disk);
-                    ++$j;
+                    $j++;
                     unset($mount[$current - 1]);
                     sort($mount);
                     break;

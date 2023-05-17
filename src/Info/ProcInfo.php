@@ -107,7 +107,7 @@ class ProcInfo implements InfoInterface
         $cont = file('/proc/net/tcp');
         $array_port = '';
         $max = \count($cont);
-        for ($i = 0; $i < $max; ++$i) {
+        for ($i = 0; $i < $max; $i++) {
             $str = explode(' ', $cont[$i]);
             if (preg_match('/[a-fA-F0-9:]$/', $str[4])) {
                 $data = explode(':', $str[4]);
@@ -131,7 +131,7 @@ class ProcInfo implements InfoInterface
     {
         $max = \count($this->ports);
         $prefix = strtoupper($prefix);
-        for ($i = 0; $i < $max; ++$i) {
+        for ($i = 0; $i < $max; $i++) {
             if ($sock = @fsockopen($host, $this->ports[$i], $errno, $errstr, $this->timeout)) {
                 stream_set_timeout($sock, 0, 100000);
                 $tmp = strtoupper(fread($sock, 127));
