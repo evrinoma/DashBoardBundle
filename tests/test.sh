@@ -10,3 +10,5 @@ echo > $log
 rm -rf vendor
 rm -rf composer.lock
 COMPOSER_NO_DEV=0 composer install
+rm -rf /tmp/DashBoardBundle
+
