@@ -1,0 +1,49 @@
+services:
+  evrinoma.dashboard.controller:
+    class: Evrinoma\DashBoardBundle\Controller\DashBoardController
+    arguments: ['@event_dispatcher','@evrinoma.dashboard.dashboard_manager']
+    autowire: true
+
+  evrinoma.dashboard.api.controller:
+    class: Evrinoma\DashBoardBundle\Controller\DashBoardApiController
+    arguments:
+      - '@evrinoma.utils.serializer'
+      - '@request_stack'
+      - '@evrinoma.dashboard.dashboard_manager'
+    autowire: true
+
+  evrinoma.dashboard.dashboard_manager:
+    class: Evrinoma\DashBoardBundle\Manager\DashBoardManager
+    arguments:
+      - ['@evrinoma.dashboard.info.proc_info','@evrinoma.dashboard.info.sys_info']
+
+  evrinoma.dashboard.info.proc_info:
+    class: Evrinoma\DashBoardBundle\Info\ProcInfo
+
+  evrinoma.dashboard.info.sys_info:
+    class: Evrinoma\DashBoardBundle\Info\SysInfo
+    arguments: [ '@evrinoma.system.shell']
+
+  Evrinoma\DashBoardBundle\Controller\DashBoardController:
+    alias: evrinoma.dashboard.controller
+    public: true
+
+  Evrinoma\DashBoardBundle\Controller\DashBoardApiController:
+    alias: evrinoma.dashboard.api.controller
+    public: true
+
+  Evrinoma\DashBoardBundle\Manager\DashBoardManager:
+    alias: evrinoma.dashboard.dashboard_manager
+    public: true
+
+  Evrinoma\DashBoardBundle\Info\ProcInfo:
+    alias:  evrinoma.dashboard.info.proc_info
+    public: true
+
+  Evrinoma\DashBoardBundle\Info\SysInfo:
+    alias: evrinoma.dashboard.info.sys_info
+    public: true
+
+  Evrinoma\DashBoardBundle\Menu\DashBoardMenu:
+    tags:
+      - { name: evrinoma.menu }

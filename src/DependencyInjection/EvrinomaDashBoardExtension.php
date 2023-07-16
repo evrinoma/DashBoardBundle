@@ -31,14 +31,18 @@ class EvrinomaDashBoardExtension extends Extension
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
 
+        if ('test' === $container->getParameter('kernel.environment')) {
+            $loader->load('tests.yml');
+        }
+
         $configuration = $this->getConfiguration($configs, $container);
         $config = $this->processConfiguration($configuration, $configs);
-        $definition = $container->getDefinition('evrinoma.dash_board.dash_board_manager');
+        $definition = $container->getDefinition('evrinoma.dashboard.dashboard_manager');
         $infos = $config['infos'];
         foreach ($infos as $info) {
             $definition->addMethodCall('addInfo', [new Reference($info)]);
         }
-        $definition = $container->getDefinition('evrinoma.dash_board.info.proc_info');
+        $definition = $container->getDefinition('evrinoma.dashboard.info.proc_info');
         $provider = $config['provider'];
         if ($provider) {
             $definition->setArgument(0, new Reference($provider));

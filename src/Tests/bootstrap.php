@@ -11,12 +11,8 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Evrinoma\DashBoardBundle\Model;
+use Symfony\Component\Dotenv\Dotenv;
 
-abstract class SizeModel
-{
-    public const SYZE_IN_BYTE = 1;
-    public const SYZE_IN_KILOBYTE = 1000;
-    public const SYZE_IN_MEGABYTE = 1000000;
-    public const SYZE_IN_GIGABYTE = 1000000000;
+if (method_exists(Dotenv::class, 'bootEnv')) {
+    (new Dotenv())->bootEnv(dirname(__DIR__).'/../.env.test');
 }

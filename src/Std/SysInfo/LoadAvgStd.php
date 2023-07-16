@@ -19,15 +19,15 @@ class LoadAvgStd
     private $loadAve5 = 0;
     private $loadAve15 = 0;
 
-    private $userCpuNext = 0;
-    private $niceCpuNext = 0;
-    private $systemCpuNext = 0;
-    private $idleCpuNext = 0;
+    private float $userCpuNext = 0;
+    private float $niceCpuNext = 0;
+    private float $systemCpuNext = 0;
+    private float $idleCpuNext = 0;
 
-    private $userCpuLast = 0;
-    private $niceCpuLast = 0;
-    private $systemCpuLast = 0;
-    private $idleCpuLast = 0;
+    private float $userCpuLast = 0;
+    private float $niceCpuLast = 0;
+    private float $systemCpuLast = 0;
+    private float $idleCpuLast = 0;
 
     /**
      * @return mixed
@@ -45,66 +45,42 @@ class LoadAvgStd
         return $loadCpu;
     }
 
-    /**
-     * @return int
-     */
-    private function getUserCpuLast(): int
+    private function getUserCpuLast(): float
     {
         return $this->userCpuLast;
     }
 
-    /**
-     * @return int
-     */
-    private function getNiceCpuLast(): int
+    private function getNiceCpuLast(): float
     {
         return $this->niceCpuLast;
     }
 
-    /**
-     * @return int
-     */
-    private function getSystemCpuLast(): int
+    private function getSystemCpuLast(): float
     {
         return $this->systemCpuLast;
     }
 
-    /**
-     * @return int
-     */
-    private function getIdleCpuLast(): int
+    private function getIdleCpuLast(): float
     {
         return $this->idleCpuLast;
     }
 
-    /**
-     * @return int
-     */
-    private function getUserCpuNext(): int
+    private function getUserCpuNext(): float
     {
         return $this->userCpuNext;
     }
 
-    /**
-     * @return int
-     */
-    private function getNiceCpuNext(): int
+    private function getNiceCpuNext(): float
     {
         return $this->niceCpuNext;
     }
 
-    /**
-     * @return int
-     */
-    private function getSystemCpuNext(): int
+    private function getSystemCpuNext(): float
     {
         return $this->systemCpuNext;
     }
 
-    /**
-     * @return int
-     */
-    private function getIdleCpuNext(): int
+    private function getIdleCpuNext(): float
     {
         return $this->idleCpuNext;
     }
@@ -155,11 +131,6 @@ class LoadAvgStd
         return $this->loadAve15;
     }
 
-    /**
-     * @param float $userCpuLast
-     *
-     * @return LoadAvgStd
-     */
     public function setUserCpuLast(float $userCpuLast): self
     {
         $this->userCpuLast = $userCpuLast;
@@ -167,11 +138,6 @@ class LoadAvgStd
         return $this;
     }
 
-    /**
-     * @param int $niceCpuLast
-     *
-     * @return LoadAvgStd
-     */
     public function setNiceCpuLast(float $niceCpuLast): self
     {
         $this->niceCpuLast = $niceCpuLast;
@@ -179,11 +145,6 @@ class LoadAvgStd
         return $this;
     }
 
-    /**
-     * @param int $systemCpuLast
-     *
-     * @return LoadAvgStd
-     */
     public function setSystemCpuLast(float $systemCpuLast): self
     {
         $this->systemCpuLast = $systemCpuLast;
@@ -191,11 +152,6 @@ class LoadAvgStd
         return $this;
     }
 
-    /**
-     * @param int $idleCpuLast
-     *
-     * @return LoadAvgStd
-     */
     public function setIdleCpuLast(float $idleCpuLast): self
     {
         $this->idleCpuLast = $idleCpuLast;
@@ -203,11 +159,6 @@ class LoadAvgStd
         return $this;
     }
 
-    /**
-     * @param int $userCpuNext
-     *
-     * @return LoadAvgStd
-     */
     public function setUserCpuNext(float $userCpuNext): self
     {
         $this->userCpuNext = $userCpuNext;
@@ -215,11 +166,6 @@ class LoadAvgStd
         return $this;
     }
 
-    /**
-     * @param int $niceCpuNext
-     *
-     * @return LoadAvgStd
-     */
     public function setNiceCpuNext(float $niceCpuNext): self
     {
         $this->niceCpuNext = $niceCpuNext;
@@ -227,11 +173,6 @@ class LoadAvgStd
         return $this;
     }
 
-    /**
-     * @param int $systemCpuNext
-     *
-     * @return LoadAvgStd
-     */
     public function setSystemCpuNext(float $systemCpuNext): self
     {
         $this->systemCpuNext = $systemCpuNext;
@@ -239,11 +180,6 @@ class LoadAvgStd
         return $this;
     }
 
-    /**
-     * @param int $idleCpuNext
-     *
-     * @return LoadAvgStd
-     */
     public function setIdleCpuNext(float $idleCpuNext): self
     {
         $this->idleCpuNext = $idleCpuNext;
@@ -251,11 +187,6 @@ class LoadAvgStd
         return $this;
     }
 
-    /**
-     * @param mixed $loadAve1
-     *
-     * @return LoadAvgStd
-     */
     public function setLoadAve1($loadAve1): self
     {
         $this->loadAve1 = $loadAve1;
@@ -263,11 +194,6 @@ class LoadAvgStd
         return $this;
     }
 
-    /**
-     * @param mixed $loadAve5
-     *
-     * @return LoadAvgStd
-     */
     public function setLoadAve5($loadAve5): self
     {
         $this->loadAve5 = $loadAve5;
@@ -275,11 +201,6 @@ class LoadAvgStd
         return $this;
     }
 
-    /**
-     * @param mixed $loadAve15
-     *
-     * @return LoadAvgStd
-     */
     public function setLoadAve15($loadAve15): self
     {
         $this->loadAve15 = $loadAve15;

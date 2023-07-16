@@ -14,38 +14,23 @@ declare(strict_types=1);
 namespace Evrinoma\DashBoardBundle\Std;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Evrinoma\DashBoardBundle\Std\ProcInfo\ServiceStd;
 
 class ProcInfoStd
 {
-    /**
-     * @var ServiceStd[]
-     */
-    private $service;
+    private ArrayCollection $service;
 
-    /**
-     * ProcInfoStd constructor.
-     */
     public function __construct()
     {
         $this->service = new ArrayCollection();
     }
 
-    /**
-     * @param $service
-     *
-     * @return $this
-     */
-    public function addService($service)
+    public function addService($service): self
     {
         $this->service->add($service);
 
         return $this;
     }
 
-    /**
-     * @return ArrayCollection
-     */
     public function getService(): ArrayCollection
     {
         return $this->service;

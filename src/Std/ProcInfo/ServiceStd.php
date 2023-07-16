@@ -19,11 +19,11 @@ class ServiceStd
     private const STATUS_ERROR = 'ERROR';
     private const STATUS_NA = 'NA';
     private $name;
-    private $status;
+    private string $status;
     private $host;
     private $port;
 
-    public function isAvailable()
+    public function isAvailable(): bool
     {
         return self::STATUS_OK === $this->status;
     }
@@ -68,21 +68,21 @@ class ServiceStd
         return $this->port;
     }
 
-    public function setStatusNA()
+    public function setStatusNA(): self
     {
         $this->status = self::STATUS_NA;
 
         return $this;
     }
 
-    public function setStatusError()
+    public function setStatusError(): self
     {
         $this->status = self::STATUS_ERROR;
 
         return $this;
     }
 
-    public function setStatusOK()
+    public function setStatusOK(): self
     {
         $this->status = self::STATUS_OK;
 
@@ -94,19 +94,14 @@ class ServiceStd
      *
      * @return ServiceStd
      */
-    public function setName($name)
+    public function setName($name): self
     {
         $this->name = $name;
 
         return $this;
     }
 
-    /**
-     * @param mixed $status
-     *
-     * @return ServiceStd
-     */
-    public function setStatus($status)
+    public function setStatus(string $status): self
     {
         $this->status = $status;
 
@@ -118,7 +113,7 @@ class ServiceStd
      *
      * @return ServiceStd
      */
-    public function setHost($host)
+    public function setHost($host): self
     {
         $this->host = $host;
 
@@ -130,7 +125,7 @@ class ServiceStd
      *
      * @return ServiceStd
      */
-    public function setPort($port)
+    public function setPort($port): self
     {
         $this->port = $port;
 

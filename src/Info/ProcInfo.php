@@ -19,22 +19,14 @@ use Evrinoma\DashBoardBundle\Provider\ScanServiceInterface;
 use Evrinoma\DashBoardBundle\Std\ProcInfo\ServiceStd;
 use Evrinoma\DashBoardBundle\Std\ProcInfoStd;
 
-/**
- * Class ProcInfo.
- */
 class ProcInfo implements InfoInterface
 {
     private $timeout = 5;
     private $ports = [];
-    /**
-     * @var ProviderInterface
-     */
-    private $pluginManager;
 
-    /**
-     * @var ProcInfoStd
-     */
-    private $procInfo;
+    private ?ProviderInterface $pluginManager = null;
+
+    private ?ProcInfoStd $procInfo = null;
 
     public function __construct(ProviderInterface $pluginManager = null)
     {

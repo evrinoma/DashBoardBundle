@@ -15,12 +15,9 @@ namespace Evrinoma\DashBoardBundle\Core;
 
 use Evrinoma\DashBoardBundle\Model\SizeModel;
 
-/**
- * Trait SizeTrait.
- */
 trait SizeTrait
 {
-    private $size = SizeModel::SYZE_IN_BYTE;
+    private int $size = SizeModel::SYZE_IN_BYTE;
 
     public function sizeInByte()
     {
@@ -50,15 +47,12 @@ trait SizeTrait
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getSize(): int
     {
         return $this->size;
     }
 
-    public function getLetter()
+    public function getLetter(): string
     {
         $letter = 'Byte';
 

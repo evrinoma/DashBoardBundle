@@ -17,10 +17,8 @@ use Evrinoma\DashBoardBundle\Event\InfoEvent;
 use Evrinoma\DashBoardBundle\Manager\DashBoardManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\HttpFoundation\Response;
 
-/**
- * Class DashBoardController.
- */
 class DashBoardController extends AbstractController
 {
     /**
@@ -39,10 +37,7 @@ class DashBoardController extends AbstractController
         $this->dashBoardManager = $dashBoardManager;
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function status()
+    public function status(): Response
     {
         $event = new InfoEvent($this->dashBoardManager->getDashBoard());
         $this->eventDispatcher->dispatch($event);

@@ -25,14 +25,14 @@ use Evrinoma\DashBoardBundle\Std\SysInfo\ScsiStd;
 class SysInfoStd
 {
     public const UNKNOWN = 'unknown';
-    private $vHostName = self::UNKNOWN;
-    private $cHostName = self::UNKNOWN;
-    private $ipAddress = self::UNKNOWN;
-    private $distrName = self::UNKNOWN;
-    private $distr = self::UNKNOWN;
-    private $kernel = self::UNKNOWN;
-    private $upTime = self::UNKNOWN;
-    private $users = self::UNKNOWN;
+    private string $vHostName = self::UNKNOWN;
+    private string $cHostName = self::UNKNOWN;
+    private string $ipAddress = self::UNKNOWN;
+    private string $distrName = self::UNKNOWN;
+    private string $distr = self::UNKNOWN;
+    private string $kernel = self::UNKNOWN;
+    private string $upTime = self::UNKNOWN;
+    private string $users = self::UNKNOWN;
     private $loadAvg;
     /**
      * @var ScsiStd[]
@@ -54,317 +54,197 @@ class SysInfoStd
      * @var DiskStd[]
      */
     private $disk;
+
     private $memory;
     /**
      * @var CpuStd[]
      */
     private $cpu;
 
-    /**
-     * SysInfoStd constructor.
-     */
     public function __construct()
     {
-        $this->loadAvg = new LoadAvgStd();
         $this->scsi = new ArrayCollection();
         $this->usb = new ArrayCollection();
         $this->pci = new ArrayCollection();
-        $this->network = new ArrayCollection();
-        $this->memory = new MemoryStd();
         $this->disk = new ArrayCollection();
         $this->cpu = new ArrayCollection();
+        $this->network = new ArrayCollection();
+        $this->memory = new MemoryStd();
+        $this->loadAvg = new LoadAvgStd();
     }
 
-    /**
-     * @param CpuStd $cpu
-     *
-     * @return $this
-     */
-    public function addCpu(CpuStd $cpu)
+    public function addCpu(CpuStd $cpu): self
     {
         $this->cpu->add($cpu);
 
         return $this;
     }
 
-    /**
-     * @param DiskStd $disk
-     *
-     * @return $this
-     */
-    public function addDisk(DiskStd $disk)
+    public function addDisk(DiskStd $disk): self
     {
         $this->disk->add($disk);
 
         return $this;
     }
 
-    /**
-     * @param NetworkStd $network
-     *
-     * @return $this
-     */
-    public function addNetwork(NetworkStd $network)
+    public function addNetwork(NetworkStd $network): self
     {
         $this->network->add($network);
 
         return $this;
     }
 
-    /**
-     * @param DevStd $pci
-     *
-     * @return $this
-     */
-    public function addPci(DevStd $pci)
+    public function addPci(DevStd $pci): self
     {
         $this->pci->add($pci);
 
         return $this;
     }
 
-    /**
-     * @param DevStd $usb
-     *
-     * @return $this
-     */
-    public function addUsb(DevStd $usb)
+    public function addUsb(DevStd $usb): self
     {
         $this->usb->add($usb);
 
         return $this;
     }
 
-    /**
-     * @param ScsiStd $scsi
-     *
-     * @return SysInfoStd
-     */
-    public function addScsi(ScsiStd $scsi)
+    public function addScsi(ScsiStd $scsi): self
     {
         $this->scsi->add($scsi);
 
         return $this;
     }
 
-    /**
-     * @return ArrayCollection
-     */
     public function getCpu(): ArrayCollection
     {
         return $this->cpu;
     }
 
-    /**
-     * @return ArrayCollection
-     */
     public function getDisk(): ArrayCollection
     {
         return $this->disk;
     }
 
-    /**
-     * @return MemoryStd
-     */
     public function getMemory(): MemoryStd
     {
         return $this->memory;
     }
 
-    /**
-     * @return ArrayCollection
-     */
     public function getNetwork(): ArrayCollection
     {
         return $this->network;
     }
 
-    /**
-     * @return ArrayCollection
-     */
     public function getPci(): ArrayCollection
     {
         return $this->pci;
     }
 
-    /**
-     * @return ArrayCollection
-     */
     public function getUsb(): ArrayCollection
     {
         return $this->usb;
     }
 
-    /**
-     * @return ArrayCollection
-     */
     public function getScsi(): ArrayCollection
     {
         return $this->scsi;
     }
 
-    /**
-     * @return LoadAvgStd
-     */
     public function getLoadAvg(): LoadAvgStd
     {
         return $this->loadAvg;
     }
 
-    /**
-     * @return string
-     */
     public function getUsers(): string
     {
         return $this->users;
     }
 
-    /**
-     * @return string
-     */
     public function getUpTime(): string
     {
         return $this->upTime;
     }
 
-    /**
-     * @return string
-     */
     public function getKernel(): string
     {
         return $this->kernel;
     }
 
-    /**
-     * @return string
-     */
     public function getIpAddress(): string
     {
         return $this->ipAddress;
     }
 
-    /**
-     * @return string
-     */
     public function getCHostName(): string
     {
         return $this->cHostName;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getVHostName()
+    public function getVHostName(): string
     {
         return $this->vHostName;
     }
 
-    /**
-     * @return string
-     */
     public function getDistrName(): string
     {
         return $this->distrName;
     }
 
-    /**
-     * @return string
-     */
     public function getDistr(): string
     {
         return $this->distr;
     }
 
-    /**
-     * @param string $users
-     *
-     * @return SysInfoStd
-     */
-    public function setUsers(string $users)
+    public function setUsers(string $users): self
     {
         $this->users = $users;
 
         return $this;
     }
 
-    /**
-     * @param string $upTime
-     *
-     * @return SysInfoStd
-     */
-    public function setUpTime(string $upTime)
+    public function setUpTime(string $upTime): self
     {
         $this->upTime = $upTime;
 
         return $this;
     }
 
-    /**
-     * @param string $kernel
-     *
-     * @return SysInfoStd
-     */
-    public function setKernel(string $kernel)
+    public function setKernel(string $kernel): self
     {
         $this->kernel = $kernel;
 
         return $this;
     }
 
-    /**
-     * @param string $ipAddress
-     *
-     * @return SysInfoStd
-     */
-    public function setIpAddress(string $ipAddress)
+    public function setIpAddress(string $ipAddress): self
     {
         $this->ipAddress = $ipAddress;
 
         return $this;
     }
 
-    /**
-     * @param string $cHostName
-     *
-     * @return SysInfoStd
-     */
-    public function setCHostName(string $cHostName)
+    public function setCHostName(string $cHostName): self
     {
         $this->cHostName = $cHostName;
 
         return $this;
     }
 
-    /**
-     * @param mixed $vHostName
-     *
-     * @return SysInfoStd
-     */
-    public function setVHostName($vHostName)
+    public function setVHostName($vHostName): self
     {
         $this->vHostName = $vHostName;
 
         return $this;
     }
 
-    /**
-     * @param string $distrName
-     *
-     * @return SysInfoStd
-     */
-    public function setDistrName(string $distrName)
+    public function setDistrName(string $distrName): self
     {
         $this->distrName = $distrName;
 
         return $this;
     }
 
-    /**
-     * @param string $distr
-     *
-     * @return SysInfoStd
-     */
-    public function setDistr(string $distr)
+    public function setDistr(string $distr): self
     {
         $this->distr = $distr;
 

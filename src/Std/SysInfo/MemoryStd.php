@@ -20,12 +20,12 @@ class MemoryStd
 {
     use SizeTrait;
 
-    private $memTotal = 0;
-    private $memFree = 0;
-    private $cached = 0;
-    private $swapTotal = 0;
-    private $swapFree = 0;
-    private $buffers = 0;
+    private int $memTotal = 0;
+    private int $memFree = 0;
+    private int $cached = 0;
+    private int $swapTotal = 0;
+    private int $swapFree = 0;
+    private int $buffers = 0;
     private $devSwap;
 
     /**
@@ -196,11 +196,6 @@ class MemoryStd
         return round($this->calcRam() * 100, 2);
     }
 
-    /**
-     * @param mixed $buffers
-     *
-     * @return MemoryStd
-     */
     public function setBuffers(int $buffers): self
     {
         $this->buffers = $buffers;
@@ -208,11 +203,6 @@ class MemoryStd
         return $this;
     }
 
-    /**
-     * @param mixed $memTotal
-     *
-     * @return MemoryStd
-     */
     public function setMemTotal(int $memTotal): self
     {
         $this->memTotal = $memTotal;
@@ -220,11 +210,6 @@ class MemoryStd
         return $this;
     }
 
-    /**
-     * @param mixed $memFree
-     *
-     * @return MemoryStd
-     */
     public function setMemFree(int $memFree): self
     {
         $this->memFree = $memFree;
@@ -232,11 +217,6 @@ class MemoryStd
         return $this;
     }
 
-    /**
-     * @param mixed $cached
-     *
-     * @return MemoryStd
-     */
     public function setCached(int $cached): self
     {
         $this->cached = $cached;
@@ -244,11 +224,6 @@ class MemoryStd
         return $this;
     }
 
-    /**
-     * @param mixed $swapTotal
-     *
-     * @return MemoryStd
-     */
     public function setSwapTotal(int $swapTotal): self
     {
         $this->swapTotal = $swapTotal;
@@ -256,11 +231,6 @@ class MemoryStd
         return $this;
     }
 
-    /**
-     * @param mixed $swapFree
-     *
-     * @return MemoryStd
-     */
     public function setSwapFree(int $swapFree): self
     {
         $this->swapFree = $swapFree;

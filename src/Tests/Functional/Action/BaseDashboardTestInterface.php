@@ -11,12 +11,8 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Evrinoma\DashBoardBundle\Model;
+namespace Evrinoma\DashBoardBundle\Tests\Functional\Action;
 
-abstract class SizeModel
+interface BaseDashboardTestInterface
 {
-    public const SYZE_IN_BYTE = 1;
-    public const SYZE_IN_KILOBYTE = 1000;
-    public const SYZE_IN_MEGABYTE = 1000000;
-    public const SYZE_IN_GIGABYTE = 1000000000;
 }

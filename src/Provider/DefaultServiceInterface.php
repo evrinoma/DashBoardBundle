@@ -13,9 +13,6 @@ declare(strict_types=1);
 
 namespace Evrinoma\DashBoardBundle\Provider;
 
-/**
- * Interface DefaultServiceInterface.
- */
 interface DefaultServiceInterface extends ServiceInterface
 {
 }

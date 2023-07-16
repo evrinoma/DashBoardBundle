@@ -25,7 +25,7 @@ class CpuStd
      *
      * @return CpuStd
      */
-    public function addCache($cache)
+    public function addCache($cache): self
     {
         $this->cache += $cache;
 
@@ -37,7 +37,7 @@ class CpuStd
      *
      * @return CpuStd
      */
-    public function addBogomips($bogomips)
+    public function addBogomips($bogomips): self
     {
         $this->bogomips += $bogomips;
 

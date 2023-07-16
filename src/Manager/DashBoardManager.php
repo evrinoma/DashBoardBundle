@@ -15,9 +15,6 @@ namespace Evrinoma\DashBoardBundle\Manager;
 
 use Evrinoma\DashBoardBundle\Info\InfoInterface;
 
-/**
- * Class DashBoardManager.
- */
 class DashBoardManager
 {
     /**
@@ -25,11 +22,6 @@ class DashBoardManager
      */
     private array $infos = [];
 
-    /**
-     * DashBoard constructor.
-     *
-     * @param array $infos
-     */
     public function __construct(array $infos)
     {
         foreach ($infos as $info) {
@@ -37,19 +29,11 @@ class DashBoardManager
         }
     }
 
-    /**
-     * DashBoard constructor.
-     *
-     * @param InfoInterface $info
-     */
     public function addInfo(InfoInterface $info): void
     {
         $this->infos[$info->getAlias()] = $info;
     }
 
-    /**
-     * @return array
-     */
     public function getDashBoard(): array
     {
         $infos = [];

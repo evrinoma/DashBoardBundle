@@ -1,0 +1,9 @@
+services:
+  evrinoma.dashboard.test.functional.action.dashboard:
+    class: Evrinoma\DashBoardBundle\Tests\Functional\Action\BaseDashboard
+    public: true
+    arguments:
+
+  Evrinoma\DashBoardBundle\Tests\Functional\Action\BaseDashboard:
+    alias: evrinoma.dashboard.test.functional.action.dashboard
+    public: true

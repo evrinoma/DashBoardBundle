@@ -1,0 +1,2 @@
+dashboard:
+    resource: "@EvrinomaDashBoardBundle/Resources/config/routes.yml"

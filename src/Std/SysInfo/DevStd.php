@@ -48,7 +48,7 @@ class DevStd
      *
      * @return DevStd
      */
-    public function setDescription($description)
+    public function setDescription($description): self
     {
         $this->description = $description;
 
@@ -60,7 +60,7 @@ class DevStd
      *
      * @return DevStd
      */
-    public function setProduct($product)
+    public function setProduct($product): self
     {
         $this->product = $product;
 
@@ -72,7 +72,7 @@ class DevStd
      *
      * @return DevStd
      */
-    public function setSerialNumber($serialNumber)
+    public function setSerialNumber($serialNumber): self
     {
         $this->serialNumber = $serialNumber;
 

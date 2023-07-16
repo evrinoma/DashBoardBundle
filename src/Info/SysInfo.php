@@ -21,23 +21,15 @@ use Evrinoma\DashBoardBundle\Std\SysInfo\ScsiStd;
 use Evrinoma\DashBoardBundle\Std\SysInfoStd;
 use Evrinoma\SystemBundle\Shell\ShellInterface;
 
-/**
- * Class SysInfo.
- */
 class SysInfo implements InfoInterface
 {
     private const NOT_AVAILABLE = 'N.A.';
     private const ERROR = 'ERROR';
 
-    private SysInfoStd $sysInfo;
+    private ?SysInfoStd $sysInfo = null;
 
-    private ShellInterface $shellManager;
+    private ?ShellInterface $shellManager = null;
 
-    /**
-     * SysInfo constructor.
-     *
-     * @param ShellInterface $shellManager
-     */
     public function __construct(ShellInterface $shellManager)
     {
         $this->sysInfo = new SysInfoStd();
@@ -113,7 +105,6 @@ class SysInfo implements InfoInterface
     }
 
     // get the IP address of our canonical hostname
-
     protected function getUptime(): SysInfo
     {
         if ($this->shellManager->rfts('/proc/uptime', 1)) {

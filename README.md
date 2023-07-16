@@ -1,20 +1,29 @@
 #Configuration
 
 
-If you'd like to gather more data then you can use custom  data provider by adding specific infos
-dashboard:<br>
-  infos:<br>
-     - 'Evrinoma\DashBoardBundle\Info\ProcInfo'<br>
-     - 'Evrinoma\DashBoardBundle\Info\SysInfo'<br>
-if you'd like to use a special handler <br>
-  provider: App\DashBoard\Provider\DashBoardProvider<br>
+If you'd like to gather more data than you can use custom data provider by adding specific infos
+```
+dashboard:
+  infos:
+     - 'Evrinoma\DashBoardBundle\Info\ProcInfo'
+     - 'Evrinoma\DashBoardBundle\Info\SysInfo'
+```
 
-Ovveride base menu<br>
-dashboard:<br>
+if you'd like to use a special handler
+```
+  provider: App\DashBoard\Provider\DashBoardProvider<br>
+```
+
+Override base menu
+```
+dashboard:
   menu: App\Menu\DashBoardMenu
-  
-or register new instance in file service.yml<br>
-App\Menu\DashBoardMenu:<br>
+```
+
+or register new instance in service.yml file
+```
+App\Menu\DashBoardMenu:
   tags:
     - { name: evrinoma.menu }
+```
  
