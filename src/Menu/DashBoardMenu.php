@@ -13,23 +13,10 @@ declare(strict_types=1);
 
 namespace Evrinoma\DashBoardBundle\Menu;
 
-use Evrinoma\DashBoardBundle\Voter\DashBoardRoleInterface;
-use Evrinoma\DtoBundle\Dto\DtoInterface;
-use Evrinoma\MenuBundle\Dto\Preserve\MenuApiDto;
 use Evrinoma\MenuBundle\Registry\ObjectInterface;
-use Evrinoma\SecurityBundle\Voter\RoleInterface;
 
-final class DashBoardMenu implements ObjectInterface
+final class DashBoardMenu extends AbstractDashBoardMenu implements ObjectInterface
 {
-    public function create(): DtoInterface
-    {
-        return (new MenuApiDto())
-                    ->setName('Status')
-            ->setRoles([RoleInterface::ROLE_SUPER_ADMIN, DashBoardRoleInterface::ROLE_STATUS])
-            ->setRoute('dashboard_status')
-            ->setTag($this->tag());
-    }
-
     public function order(): int
     {
         return 0;
