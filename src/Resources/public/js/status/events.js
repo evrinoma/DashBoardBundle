@@ -1,7 +1,7 @@
 export default class DashBoardEvents {
 
     constructor() {
-        this.url = {'dashboard_status': location.protocol + '//' + location.hostname + '/evrinoma/dashboard/status'};
+        this.url = {'dashboard_status': location.protocol + '//' + location.hostname + ':' + location.port + '/evrinoma/dashboard/status'};
     }
 
     getUrl(alias) {
